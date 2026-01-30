@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Map | ParkSmart</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .navbar {
+            flex-shrink: 0;
+            position: sticky;
+            top: 0;
+        }
+
+        .map-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .map-container {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+            background: var(--surface-alt);
+        }
+
+        .map-sidebar {
+            width: 360px;
+            background: var(--surface);
+            border-right: 1px solid var(--border);
+            padding: 1.5rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            z-index: 10;
+        }
+
+        .map-visual {
+            flex: 1;
+            background-image: url('https://images.unsplash.com/photo-1545179605-1296651e9d43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .map-marker {
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            border: 2px solid white;
+            transition: var(--transition);
+        }
+
+        .map-marker i {
+            transform: rotate(45deg);
+            font-size: 14px;
+        }
+
+        .map-marker:hover {
+            transform: rotate(-45deg) scale(1.2);
+            z-index: 100;
+        }
+
+        .back-link-bar {
+            padding: 0.75rem 2rem;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            flex-shrink: 0;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+            transform: translateX(-5px);
+        }
+
+        .footer {
+            flex-shrink: 0;
+            padding: 1rem 0;
+            /* Minimized for map view to fit viewport */
+            height: 80px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer .footer-grid {
+            display: none;
+            /* Hide large footer grid on this specific view to fit viewport */
+        }
+
+        .footer .footer-bottom {
+            margin: 0;
+            padding: 0;
+            border: none;
+            width: 100%;
+        }
+
+        @media (max-width: 992px) {
+            .map-sidebar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo"><i data-lucide="parking-circle"></i> ParkSmart</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home 1</a></li>
+                <li><a href="home-2.html" class="nav-link">Home 2</a></li>
+                <li><a href="locations.html" class="nav-link">Locations</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="plans.html" class="nav-link">Pricing</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle"><i data-lucide="moon"></i></button>
+                <div class="dropdown">
+                    <button class="btn btn-primary"><i data-lucide="layout-dashboard"></i> Dashboards <i
+                            data-lucide="chevron-down"></i></button>
+                    <div class="dropdown-menu">
+                        <a href="dashboards/customer/index.html" class="dropdown-item"><i data-lucide="user"></i>
+                            User</a>
+                        <a href="dashboards/staff/index.html" class="dropdown-item"><i data-lucide="users"></i>
+                            Staff</a>
+                        <a href="dashboards/admin/index.html" class="dropdown-item"><i data-lucide="shield-check"></i>
+                            Admin</a>
+                    </div>
+                </div>
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signup.html" class="btn btn-signup">Signup</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="map-wrapper">
+        <div class="map-container">
+            <!-- Sidebar -->
+            <aside class="map-sidebar">
+                <h2 class="mb-4">Parking Finder</h2>
+
+                <div class="mb-4" style="position: relative;">
+                    <input type="text" placeholder="Search area..."
+                        style="width: 100%; padding: 0.75rem 1rem 0.75rem 2.5rem; border: 1px solid var(--border); border-radius: 0.5rem; background: var(--surface-alt); color: var(--text);">
+                    <i data-lucide="search"
+                        style="position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%); width: 16px; color: var(--text-muted);"></i>
+                </div>
+
+                <div class="mb-4">
+                    <h4
+                        style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">
+                        Vehicle Type</h4>
+                    <div class="flex gap-1 mt-2">
+                        <button class="btn btn-primary" style="padding: 0.5rem; flex: 1;"><i
+                                data-lucide="car"></i></button>
+                        <button class="btn btn-outline" style="padding: 0.5rem; flex: 1;"><i
+                                data-lucide="bike"></i></button>
+                        <button class="btn btn-outline" style="padding: 0.5rem; flex: 1;"><i
+                                data-lucide="truck"></i></button>
+                    </div>
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid var(--border); margin: 1.5rem 0;">
+
+                <div class="results-list">
+                    <div class="card mb-3" style="padding: 1.25rem; cursor: pointer; border-color: var(--primary);">
+                        <div class="flex" style="justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="font-weight: 700;">Grand Plaza</span>
+                            <span class="badge badge-secondary">92%</span>
+                        </div>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">230 Slots Free • $12/hr</p>
+                    </div>
+                    <div class="card mb-3" style="padding: 1.25rem; cursor: pointer;">
+                        <div class="flex" style="justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="font-weight: 700;">Skyline Gateway</span>
+                            <span class="badge badge-primary">22%</span>
+                        </div>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">44 Slots Free • $15/hr</p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Map Visual -->
+            <main class="map-visual">
+                <div class="map-marker" style="top: 30%; left: 40%;"><i data-lucide="parking-circle"></i></div>
+                <div class="map-marker" style="top: 55%; left: 60%; background: var(--secondary);"><i
+                        data-lucide="parking-circle"></i></div>
+                <div class="map-marker" style="top: 20%; left: 75%; background: #6366f1;"><i
+                        data-lucide="parking-circle"></i></div>
+
+                <!-- Map Legend -->
+                <div
+                    style="position: absolute; bottom: 2rem; right: 2rem; background: var(--surface); padding: 1.25rem; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow-lg); z-index: 20;">
+                    <h5 class="mb-2" style="font-size: 0.9rem;">Availability</h5>
+                    <div class="flex gap-1 mb-1" style="font-size: 0.8rem;"><span
+                            style="width: 10px; height: 10px; background: var(--secondary); border-radius: 2px;"></span>
+                        High (80%+)</div>
+                    <div class="flex gap-1 mb-1" style="font-size: 0.8rem;"><span
+                            style="width: 10px; height: 10px; background: var(--primary); border-radius: 2px;"></span>
+                        Limited (10-80%)</div>
+                    <div class="flex gap-1" style="font-size: 0.8rem;"><span
+                            style="width: 10px; height: 10px; background: #6366f1; border-radius: 2px;"></span>
+                        Subscriber
+                        Only</div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Back Link Bar -->
+        <div class="back-link-bar">
+            <div class="container">
+                <a href="locations.html" class="back-link"><i data-lucide="arrow-left"></i> Back to Search</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid reveal">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="margin-bottom: 0;"><i data-lucide="parking-circle"></i>
+                        ParkSmart</a>
+                </div>
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home 1</a></li>
+                        <li><a href="home-2.html">Home 2</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="plans.html">Pricing Plans</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="locations.html">Our Locations</a></li>
+                        <li><a href="map.html">Live Space Map</a></li>
+                        <li><a href="#">Support Center</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i data-lucide="mail"></i> support@parksmart.com</li>
+                        <li><i data-lucide="phone"></i> +1 (555) 123-4567</li>
+                        <li><i data-lucide="map-pin"></i> 500 Innovation Way, Tech City</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i data-lucide="twitter"></i></a>
+                        <a href="#" class="social-link"><i data-lucide="linkedin"></i></a>
+                        <a href="#" class="social-link"><i data-lucide="github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ParkSmart. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop">
+        <i data-lucide="chevron-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard | ParkSmart</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dashboard.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body data-theme="light">
+    <div class="dashboard-vh">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="../../index.html" class="logo">
+                    <i data-lucide="parking-circle"></i> ParkSmart <span
+                        style="font-size: 0.6rem; background: var(--secondary); color: white; padding: 2px 5px; border-radius: 4px; vertical-align: middle;">STAFF</span>
+                </a>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="index.html" class="menu-item active"><i data-lucide="layout-grid"></i> <span>Operational
+                        Overview</span></a>
+                <a href="garage.html" class="menu-item"><i data-lucide="building-2"></i> <span>Garage Details</span></a>
+                <a href="slots.html" class="menu-item"><i data-lucide="monitor"></i> <span>Live Slot
+                        Management</span></a>
+                <a href="check-in.html" class="menu-item"><i data-lucide="log-in"></i> <span>Check-in/Out
+                        Control</span></a>
+                <a href="reports.html" class="menu-item"><i data-lucide="file-text"></i> <span>Daily Reports</span></a>
+                <a href="notifications.html" class="menu-item"><i data-lucide="bell"></i> <span>Notifications</span></a>
+                <a href="profile.html" class="menu-item"><i data-lucide="user"></i> <span>My Profile</span></a>
+                <a href="settings.html" class="menu-item"><i data-lucide="settings"></i> <span>Settings</span></a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../../index.html" class="menu-item" style="color: #ef4444;"><i data-lucide="log-out"></i>
+                    <span>Logout</span></a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-dashboard">
+            <header class="dashboard-header">
+                <div class="flex-center gap-1">
+                    <h3 style="margin: 0;">Operational: Grand Plaza Garage</h3>
+                </div>
+                <div class="flex-center gap-1">
+                    <button id="theme-toggle" class="theme-toggle"><i data-lucide="moon"></i></button>
+                    <div style="width: 1px; height: 30px; background: var(--border); margin: 0 0.5rem;"></div>
+                    <div class="user-badge">
+                        <span style="font-weight: 600; font-size: 0.9rem;">Mark Stevens (Staff)</span>
+                        <div class="avatar" style="background: var(--secondary);">MS</div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-body">
+                <div class="stats-grid">
+                    <div class="stat-card reveal-up">
+                        <div class="stat-header">
+                            <div class="stat-icon"
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--secondary);"><i
+                                    data-lucide="car"></i></div>
+                        </div>
+                        <div class="stat-value">184/250</div>
+                        <div class="stat-label">Slots Occupied</div>
+                    </div>
+                    <div class="stat-card reveal-up">
+                        <div class="stat-header">
+                            <div class="stat-icon" style="background: rgba(37, 99, 235, 0.1); color: var(--primary);"><i
+                                    data-lucide="door-open"></i></div>
+                        </div>
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">Entries Today</div>
+                    </div>
+                    <div class="stat-card reveal-up">
+                        <div class="stat-header">
+                            <div class="stat-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--accent);"><i
+                                    data-lucide="log-out"></i></div>
+                        </div>
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Exits Today</div>
+                    </div>
+                    <div class="stat-card reveal-up">
+                        <div class="stat-header">
+                            <div class="stat-icon" style="background: rgba(239, 68, 68, 0.1); color: #ef4444;"><i
+                                    data-lucide="alert-triangle"></i></div>
+                        </div>
+                        <div class="stat-value">02</div>
+                        <div class="stat-label">Issues Reported</div>
+                    </div>
+                </div>
+
+                <!-- Check-in Action -->
+                <div class="table-card mb-4"
+                    style="background: linear-gradient(90deg, var(--primary), #1e40af); color: white; border: none; padding: 2.5rem;">
+                    <div class="flex" style="justify-content: space-between; align-items: center;">
+                        <div>
+                            <h2 style="margin-bottom: 0.5rem;">Quick Arrival Control</h2>
+                            <p style="opacity: 0.8;">Scan ticket or enter plate number for manual check-in.</p>
+                        </div>
+                        <div class="flex gap-1"
+                            style="background: white; padding: 0.5rem; border-radius: 1rem; width: 400px;">
+                            <input type="text" placeholder="Enter Plate Number (e.g. ABC-1234)"
+                                style="flex: 1; border: none; padding: 0.75rem; border-radius: 0.5rem; outline: none;">
+                            <button class="btn btn-primary" style="border-radius: 0.75rem;">Check-In</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <!-- Recent Vehicles -->
+                    <div class="table-card">
+                        <div class="card-header">
+                            <h4 style="margin: 0;">Recently Parked</h4>
+                            <button class="btn btn-outline"
+                                style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Refresh</button>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Plate</th>
+                                    <th>Slot</th>
+                                    <th>Time In</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>NY-4522-X</strong></td>
+                                    <td>B-12</td>
+                                    <td>12:34 PM</td>
+                                    <td><button class="btn"
+                                            style="padding: 0.3rem 0.6rem; border: 1px solid var(--border); font-size: 0.75rem;">Details</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>CA-8899-K</strong></td>
+                                    <td>A-05</td>
+                                    <td>12:15 PM</td>
+                                    <td><button class="btn"
+                                            style="padding: 0.3rem 0.6rem; border: 1px solid var(--border); font-size: 0.75rem;">Details</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>TX-1122-Z</strong></td>
+                                    <td>C-45</td>
+                                    <td>11:50 AM</td>
+                                    <td><button class="btn"
+                                            style="padding: 0.3rem 0.6rem; border: 1px solid var(--border); font-size: 0.75rem;">Details</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Alerts -->
+                    <div class="table-card">
+                        <div class="card-header">
+                            <h4 style="margin: 0;">System Alerts</h4>
+                        </div>
+                        <div style="padding: 1rem;">
+                            <div
+                                style="background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem;">
+                                <div class="flex" style="justify-content: space-between; margin-bottom: 0.25rem;">
+                                    <span style="font-weight: 700; color: #ef4444;">Sensor Offline</span>
+                                    <span style="font-size: 0.75rem; color: var(--text-muted);">2 mins ago</span>
+                                </div>
+                                <p style="font-size: 0.85rem; color: var(--text-muted);">Slot A-15 sensor is not
+                                    responding. Physical check required.</p>
+                            </div>
+                            <div
+                                style="background: rgba(245, 158, 11, 0.05); border-left: 4px solid var(--accent); padding: 1rem; border-radius: 0.5rem;">
+                                <div class="flex" style="justify-content: space-between; margin-bottom: 0.25rem;">
+                                    <span style="font-weight: 700; color: var(--accent);">Overstay Warning</span>
+                                    <span style="font-size: 0.75rem; color: var(--text-muted);">15 mins ago</span>
+                                </div>
+                                <p style="font-size: 0.85rem; color: var(--text-muted);">Vehicle NY-1100-B has exceeded
+                                    24hr limit in Slot D-02.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Use simpler theme toggle for dashboards
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            const current = body.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            updateIcon(next);
+        });
+
+        function updateIcon(theme) {
+            const icon = themeToggle.querySelector('i');
+            if (theme === 'dark') {
+                icon.setAttribute('data-lucide', 'sun');
+            } else {
+                icon.setAttribute('data-lucide', 'moon');
+            }
+            if (window.lucide) lucide.createIcons();
+        }
+
+        const saved = localStorage.getItem('theme') || 'light';
+        body.setAttribute('data-theme', saved);
+        updateIcon(saved);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) lucide.createIcons();
+        });
+    </script>
+</body>
+
+</html>
+
+

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garages & Locations | ParkSmart</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="apple-touch-icon" href="assets/images/favicon.svg">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo"><i data-lucide="parking-circle"></i> ParkSmart</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home 1</a></li>
+                <li><a href="home-2.html" class="nav-link">Home 2</a></li>
+                <li><a href="locations.html" class="nav-link active">Locations</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="plans.html" class="nav-link">Pricing</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" style="margin-left: auto; margin-right: 0.5rem;"><i
+                    data-lucide="moon"></i></button>
+            <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()"><i
+                    data-lucide="menu"></i></button>
+            <div class="nav-actions">
+                <div class="dropdown">
+                    <button class="btn btn-primary"><i data-lucide="layout-dashboard"></i> Dashboards <i
+                            data-lucide="chevron-down"></i></button>
+                    <div class="dropdown-menu">
+                        <a href="dashboards/customer/index.html" class="dropdown-item"><i data-lucide="user"></i>
+                            User</a>
+                        <a href="dashboards/staff/index.html" class="dropdown-item"><i data-lucide="users"></i>
+                            Staff</a>
+                        <a href="dashboards/admin/index.html" class="dropdown-item"><i data-lucide="shield-check"></i>
+                            Admin</a>
+                    </div>
+                </div>
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signup.html" class="btn btn-signup">Signup</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html" class="mobile-nav-link">Home 1</a></li>
+            <li><a href="home-2.html" class="mobile-nav-link">Home 2</a></li>
+            <li><a href="locations.html" class="mobile-nav-link">Locations</a></li>
+            <li><a href="about.html" class="mobile-nav-link">About</a></li>
+            <li><a href="plans.html" class="mobile-nav-link">Pricing</a></li>
+            <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+        </ul>
+        <div class="mobile-actions">
+            <div class="dashboard-group">
+                <span class="dashboard-label">Dashboards</span>
+                <a href="dashboards/customer/index.html" class="mobile-nav-link"><i data-lucide="user"></i> User</a>
+                <a href="dashboards/staff/index.html" class="mobile-nav-link"><i data-lucide="users"></i> Staff</a>
+                <a href="dashboards/admin/index.html" class="mobile-nav-link"><i data-lucide="shield-check"></i>
+                    Admin</a>
+            </div>
+            <a href="login.html" class="btn btn-outline" style="width: 100%; justify-content: center;">Login</a>
+            <a href="signup.html" class="btn btn-signup" style="width: 100%; justify-content: center;">Signup</a>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <header class="hero" style="padding: 10rem 0 3rem; background: var(--surface-alt);">
+        <div class="container reveal text-center">
+            <h1 class="mb-2">Our Parking Network</h1>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">Discover 45+ strategically located
+                garages across the city. Real-time availability at your fingertips.</p>
+        </div>
+    </header>
+
+    <!-- Locations Grid -->
+    <section class="section">
+        <div class="container">
+            <!-- Filter Bar -->
+            <div class="reveal"
+                style="background: var(--surface); padding: 1.5rem; border-radius: var(--radius); border: 1px solid var(--border); display: flex; gap: 1.5rem; margin-bottom: 2rem; align-items: center; justify-content: center;">
+                <div style="flex: 1; max-width: 400px; position: relative;">
+                    <i data-lucide="search"
+                        style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); width: 18px; color: var(--text-muted);"></i>
+                    <input type="text" placeholder="Search by area or street name..."
+                        style="width: 100%; padding: 0.75rem 1rem 0.75rem 3rem; border: 1px solid var(--border); border-radius: 0.5rem; background: var(--surface-alt); color: var(--text);">
+                </div>
+                <div class="flex gap-1">
+                    <button class="btn btn-outline" style="padding: 0.6rem 1rem;"><i data-lucide="filter"
+                            style="width: 16px;"></i> Filters</button>
+                    <button class="btn btn-primary" style="padding: 0.6rem 1rem;"><i data-lucide="map"
+                            style="width: 16px;"></i> Map View</button>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="grid-4 reveal mb-5" style="gap: 1.5rem;">
+                <div class="card text-center" style="padding: 1.25rem; background: var(--surface-alt); border: none;">
+                    <div style="color: var(--primary); font-size: 1.5rem; font-weight: 800;">45+</div>
+                    <div
+                        style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05rem;">
+                        Total Locations</div>
+                </div>
+                <div class="card text-center" style="padding: 1.25rem; background: var(--surface-alt); border: none;">
+                    <div style="color: var(--secondary); font-size: 1.5rem; font-weight: 800;">320</div>
+                    <div
+                        style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05rem;">
+                        Available Spots</div>
+                </div>
+                <div class="card text-center" style="padding: 1.25rem; background: var(--surface-alt); border: none;">
+                    <div style="color: var(--accent); font-size: 1.5rem; font-weight: 800;">18</div>
+                    <div
+                        style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05rem;">
+                        24/7 Garages</div>
+                </div>
+                <div class="card text-center" style="padding: 1.25rem; background: var(--surface-alt); border: none;">
+                    <div style="color: var(--primary); font-size: 1.5rem; font-weight: 800;">12</div>
+                    <div
+                        style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05rem;">
+                        EV Locations</div>
+                </div>
+            </div>
+
+            <div class="grid-3 reveal" style="gap: 2rem; margin-top: 3rem;">
+                <!-- Garage 1 -->
+                <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <img src="https://images.pexels.com/photos/12828659/pexels-photo-12828659.jpeg" alt="Grand Plaza"
+                        style="width: 100%; height: 180px; object-fit: cover;">
+                    <div style="padding: 1.5rem; flex: 1; display: flex; flex-direction: column;">
+                        <div class="flex" style="justify-content: space-between; margin-bottom: 0.75rem;">
+                            <span class="badge badge-secondary" style="font-size: 0.7rem;">92% FREE</span>
+                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--primary);">$12/hr</span>
+                        </div>
+                        <h4 class="mb-1" style="font-size: 1.1rem;">Grand Plaza Garage</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;"><i
+                                data-lucide="map-pin" style="width: 14px; vertical-align: middle;"></i> Downtown CBD •
+                            500m away</p>
+
+                        <div class="flex gap-1 mb-3"
+                            style="border-top: 1px solid var(--border); padding-top: 1rem; margin-top: auto;">
+                            <div style="text-align: center; flex: 1;">
+                                <div style="font-weight: 800; font-size: 0.9rem;">250</div>
+                                <div style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">
+                                    Total</div>
+                            </div>
+                            <div
+                                style="text-align: center; flex: 1; border-left: 1px solid var(--border); border-right: 1px solid var(--border);">
+                                <div style="font-weight: 800; color: var(--secondary); font-size: 0.9rem;">230</div>
+                                <div style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">
+                                    Free</div>
+                            </div>
+                            <div style="text-align: center; flex: 1;">
+                                <div style="font-weight: 800; color: var(--primary); font-size: 0.9rem;">2.1m</div>
+                                <div style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">
+                                    Height</div>
+                            </div>
+                        </div>
+
+                        <a href="plans.html" class="btn btn-primary w-100" style="padding: 0.75rem;">Reserve Spot</a>
+                    </div>
+                </div>
+
+                <!-- Garage 2 -->
+                <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <img src="https://images.unsplash.com/photo-1506521781263-d8422e82f27a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Skyline" style="width: 100%; height: 180px; object-fit: cover;">
+                    <div style="padding: 1.5rem; flex: 1; display: flex; flex-direction: column;">
+                        <div class="flex" style="justify-content: space-between; margin-bottom: 0.75rem;">
+                            <span class="badge badge-primary" style="font-size: 0.7rem;">22% FREE</span>
+                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--primary);">$15/hr</span>
+                        </div>
+                        <h4 class="mb-1" style="font-size: 1.1rem;">Skyline Gateway</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;"><i
+                                data-lucide="map-pin" style="width: 14px; vertical-align: middle;"></i> Financial
+                            District • 1.2km away</p>
+
+                        <div class="flex gap-1 mb-3"
+                            style="border-top: 1px solid var(--border); padding-top: 1rem; margin-top: auto;">
+                            <div style="text-align: center; flex: 1;">
+                                <div style="font-weight: 800; font-size: 0.9rem;">200</div>
+                                <div style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">
+                                    Total</div>
+                            </div>
+                            <div
+                                style="text-align: center; flex: 1; border-left: 1px solid var(--border); border-right: 1px solid var(--border);">
+                                <div style="font-weight: 800; color: var(--primary); font-size: 0.9rem;">44</div>
+                                <div style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">
+                                    Free</div>
+                            </div>
+                            <div style="text-align: center; flex: 1;">
+                                <div style="font-weight: 800; color: var(--primary); font-size: 0.9rem;">2.4m</div>
+                                <div style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">
+                                    Height</div>
+                            </div>
+                        </div>
+
+                        <a href="plans.html" class="btn btn-primary w-100" style="padding: 0.75rem;">Reserve Spot</a>
+                    </div>
+                </div>
+
+                <!-- Garage 3 -->
+                <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <img src="https://images.pexels.com/photos/5932513/pexels-photo-5932513.jpeg" alt="Riverside"
+                        style="width: 100%; height: 180px; object-fit: cover;">
+                    <div style="padding: 1.5rem; flex: 1; display: flex; flex-direction: column;">
+                        <div class="flex" style="justify-content: space-between; margin-bottom: 0.75rem;">
+                            <span class="badge badge-secondary" style="font-size: 0.7rem;">41% FREE</span>
+                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--primary);">$10/hr</span>
+                        </div>
+                        <h4 class="mb-1" style="font-size: 1.1rem;">Riverside Hub</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;"><i
+                                data-lucide="map-pin" style="width: 14px; vertical-align: middle;"></i> West End Park •
+                            2.5km away</p>
+
+                        <div class="flex gap-1 mb-3"
+                            style="border-top: 1px solid var(--border); padding-top: 1rem; margin-top: auto;">
+                            <div style="text-align: center; flex: 1;">
+                                <div style="font-weight: 800; font-size: 0.9rem;">150</div>
+                                <div style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">
+                                    Total</div>
+                            </div>
+                            <div
+                                style="text-align: center; flex: 1; border-left: 1px solid var(--border); border-right: 1px solid var(--border);">
+                                <div style="font-weight: 800; color: var(--secondary); font-size: 0.9rem;">61</div>
+                                <div style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">
+                                    Free</div>
+                            </div>
+                            <div style="text-align: center; flex: 1;">
+                                <div style="font-weight: 800; color: var(--primary); font-size: 0.9rem;">2.0m</div>
+                                <div style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">
+                                    Height</div>
+                            </div>
+                        </div>
+
+                        <a href="plans.html" class="btn btn-primary w-100" style="padding: 0.75rem;">Reserve Spot</a>
+                    </div>
+                </div>
+
+                <!-- Garage 4 (New) -->
+                <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <img src="https://images.unsplash.com/photo-1470224114660-3f6686c562eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Central Station" style="width: 100%; height: 180px; object-fit: cover;">
+                    <div style="padding: 1.5rem; flex: 1; display: flex; flex-direction: column;">
+                        <div class="flex" style="justify-content: space-between; margin-bottom: 0.75rem;">
+                            <span class="badge badge-secondary" style="font-size: 0.7rem;">85% FREE</span>
+                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--primary);">$8/hr</span>
+                        </div>
+                        <h4 class="mb-1" style="font-size: 1.1rem;">Central Station</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;"><i
+                                data-lucide="map-pin" style="width: 14px; vertical-align: middle;"></i> Train Station •
+                            100m away</p>
+
+                        <div class="flex gap-1 mb-3"
+                            style="border-top: 1px solid var(--border); padding-top: 1rem; margin-top: auto;">
+                            <div style="text-align: center; flex: 1;">
+                                <div style="font-weight: 800; font-size: 0.9rem;">500</div>
+                                <div style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">
+                                    Total</div>
+                            </div>
+                            <div
+                                style="text-align: center; flex: 1; border-left: 1px solid var(--border); border-right: 1px solid var(--border);">
+                                <div style="font-weight: 800; color: var(--secondary); font-size: 0.9rem;">425</div>
+                                <div style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">
+                                    Free</div>
+                            </div>
+                            <div style="text-align: center; flex: 1;">
+                                <div style="font-weight: 800; color: var(--primary); font-size: 0.9rem;">2.2m</div>
+                                <div style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">
+                                    Height</div>
+                            </div>
+                        </div>
+
+                        <a href="plans.html" class="btn btn-primary w-100" style="padding: 0.75rem;">Reserve Spot</a>
+                    </div>
+                </div>
+
+                <!-- Garage 5 (New) -->
+                <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <img src="https://images.unsplash.com/photo-1573348722427-f1d6819fdf98?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Market Square" style="width: 100%; height: 180px; object-fit: cover;">
+                    <div style="padding: 1.5rem; flex: 1; display: flex; flex-direction: column;">
+                        <div class="flex" style="justify-content: space-between; margin-bottom: 0.75rem;">
+                            <span class="badge badge-primary" style="font-size: 0.7rem;">15% FREE</span>
+                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--primary);">$20/hr</span>
+                        </div>
+                        <h4 class="mb-1" style="font-size: 1.1rem;">Market Square</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;"><i
+                                data-lucide="map-pin" style="width: 14px; vertical-align: middle;"></i> Shopping
+                            District
+                            • 300m away</p>
+
+                        <div class="flex gap-1 mb-3"
+                            style="border-top: 1px solid var(--border); padding-top: 1rem; margin-top: auto;">
+                            <div style="text-align: center; flex: 1;">
+                                <div style="font-weight: 800; font-size: 0.9rem;">180</div>
+                                <div style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">
+                                    Total</div>
+                            </div>
+                            <div
+                                style="text-align: center; flex: 1; border-left: 1px solid var(--border); border-right: 1px solid var(--border);">
+                                <div style="font-weight: 800; color: var(--primary); font-size: 0.9rem;">27</div>
+                                <div style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">
+                                    Free</div>
+                            </div>
+                            <div style="text-align: center; flex: 1;">
+                                <div style="font-weight: 800; color: var(--primary); font-size: 0.9rem;">2.1m</div>
+                                <div style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">
+                                    Height</div>
+                            </div>
+                        </div>
+
+                        <a href="plans.html" class="btn btn-primary w-100" style="padding: 0.75rem;">Reserve Spot</a>
+                    </div>
+                </div>
+
+                <!-- Garage 6 (New) -->
+                <div class="card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <img src="https://images.pexels.com/photos/13710290/pexels-photo-13710290.jpeg" alt="Harbor View"
+                        style="width: 100%; height: 180px; object-fit: cover;">
+                    <div style="padding: 1.5rem; flex: 1; display: flex; flex-direction: column;">
+                        <div class="flex" style="justify-content: space-between; margin-bottom: 0.75rem;">
+                            <span class="badge badge-secondary" style="font-size: 0.7rem;">60% FREE</span>
+                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--primary);">$14/hr</span>
+                        </div>
+                        <h4 class="mb-1" style="font-size: 1.1rem;">Harbor View Deck</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;"><i
+                                data-lucide="map-pin" style="width: 14px; vertical-align: middle;"></i> Waterfront •
+                            800m away</p>
+
+                        <div class="flex gap-1 mb-3"
+                            style="border-top: 1px solid var(--border); padding-top: 1rem; margin-top: auto;">
+                            <div style="text-align: center; flex: 1;">
+                                <div style="font-weight: 800; font-size: 0.9rem;">300</div>
+                                <div style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">
+                                    Total</div>
+                            </div>
+                            <div
+                                style="text-align: center; flex: 1; border-left: 1px solid var(--border); border-right: 1px solid var(--border);">
+                                <div style="font-weight: 800; color: var(--secondary); font-size: 0.9rem;">180</div>
+                                <div style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">
+                                    Free</div>
+                            </div>
+                            <div style="text-align: center; flex: 1;">
+                                <div style="font-weight: 800; color: var(--primary); font-size: 0.9rem;">2.5m</div>
+                                <div style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">
+                                    Height</div>
+                            </div>
+                        </div>
+
+                        <a href="plans.html" class="btn btn-primary w-100" style="padding: 0.75rem;">Reserve Spot</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container reveal">
+            <div class="text-center"
+                style="background: var(--surface-alt); padding: 4rem 2rem; border-radius: var(--radius-lg); border: 1px solid var(--border);">
+                <h2 class="mb-3">Ready to find your perfect spot?</h2>
+                <p class="mb-5"
+                    style="color: var(--text-muted); max-width: 600px; margin-left: auto; margin-right: auto;">Join
+                    ParkSmart today and experience the future of urban mobility with real-time tracking and instant
+                    reservations.</p>
+                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                    <a href="index.html" class="btn btn-primary" style="padding: 1rem 2rem;">Find Parking</a>
+                    <a href="map.html" class="btn btn-outline" style="padding: 1rem 2rem;">View Map</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <div id="parksmart-footer"></div>
+
+    <button class="back-to-top" id="backToTop">
+        <i data-lucide="chevron-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

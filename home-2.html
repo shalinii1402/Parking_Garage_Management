@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParkSmart | Search & Reserve</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="apple-touch-icon" href="assets/images/favicon.svg">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .map-hero {
+            height: 70vh;
+            position: relative;
+            background-image: url('https://images.unsplash.com/photo-1545179605-1296651e9d43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .map-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(2px);
+        }
+
+        .search-box-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 700px;
+            padding: 0 1rem;
+        }
+
+        .search-card {
+            background: var(--surface);
+            padding: 1.5rem 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            gap: 1.25rem;
+            align-items: end;
+        }
+
+        @media (max-width: 768px) {
+            .search-card {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo"><i data-lucide="parking-circle"></i> ParkSmart</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home 1</a></li>
+                <li><a href="home-2.html" class="nav-link active">Home 2</a></li>
+                <li><a href="locations.html" class="nav-link">Locations</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="plans.html" class="nav-link">Pricing</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" style="margin-left: auto; margin-right: 0.5rem;"><i
+                    data-lucide="moon"></i></button>
+            <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()"><i
+                    data-lucide="menu"></i></button>
+            <div class="nav-actions">
+                <div class="dropdown">
+                    <button class="btn btn-primary"><i data-lucide="layout-dashboard"></i> Dashboards <i
+                            data-lucide="chevron-down"></i></button>
+                    <div class="dropdown-menu">
+                        <a href="dashboards/customer/index.html" class="dropdown-item"><i data-lucide="user"></i>
+                            User</a>
+                        <a href="dashboards/staff/index.html" class="dropdown-item"><i data-lucide="users"></i>
+                            Staff</a>
+                        <a href="dashboards/admin/index.html" class="dropdown-item"><i data-lucide="shield-check"></i>
+                            Admin</a>
+                    </div>
+                </div>
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signup.html" class="btn btn-signup">Signup</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html" class="mobile-nav-link">Home 1</a></li>
+            <li><a href="home-2.html" class="mobile-nav-link">Home 2</a></li>
+            <li><a href="locations.html" class="mobile-nav-link">Locations</a></li>
+            <li><a href="about.html" class="mobile-nav-link">About</a></li>
+            <li><a href="plans.html" class="mobile-nav-link">Pricing</a></li>
+            <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+        </ul>
+        <div class="mobile-actions">
+            <div class="dashboard-group">
+                <span class="dashboard-label">Dashboards</span>
+                <a href="dashboards/customer/index.html" class="mobile-nav-link"><i data-lucide="user"></i> User</a>
+                <a href="dashboards/staff/index.html" class="mobile-nav-link"><i data-lucide="users"></i> Staff</a>
+                <a href="dashboards/admin/index.html" class="mobile-nav-link"><i data-lucide="shield-check"></i>
+                    Admin</a>
+            </div>
+            <a href="login.html" class="btn btn-outline" style="width: 100%; justify-content: center;">Login</a>
+            <a href="signup.html" class="btn btn-signup" style="width: 100%; justify-content: center;">Signup</a>
+        </div>
+    </div>
+
+    <header class="map-hero">
+        <div class="search-box-container reveal">
+            <h1 class="text-center mb-2">Find Your Perfect Spot</h1>
+            <div class="text-center mb-4">
+                <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: 0.25rem;">Real-time availability at your
+                    fingertips.</p>
+                <p style="font-size: 1.1rem; opacity: 0.9;">Quick reservations in just a few clicks.</p>
+            </div>
+            <div class="search-card">
+                <div>
+                    <label
+                        style="display: block; font-size: 0.75rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Destination</label>
+                    <input type="text" placeholder="Enter city or garage name"
+                        style="width: 100%; border: 1px solid var(--border); padding: 0.65rem 1rem; border-radius: 0.5rem; background: var(--surface-alt); color: var(--text); font-size: 0.95rem;">
+                </div>
+                <div>
+                    <label
+                        style="display: block; font-size: 0.75rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Vehicle
+                        Type</label>
+                    <select
+                        style="width: 100%; border: 1px solid var(--border); padding: 0.65rem 1rem; border-radius: 0.5rem; background: var(--surface-alt); color: var(--text); font-size: 0.95rem;">
+                        <option>Car/Sedan</option>
+                        <option>SUV/Truck</option>
+                        <option>Motorcycle</option>
+                        <option>Bicycle</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" style="height: 42px; padding: 0 1.5rem; font-size: 0.9rem;">Search
+                    Now</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Network Statistics -->
+    <section class="section">
+        <div class="container">
+            <div class="grid-3 reveal" style="gap: 2.5rem;">
+                <div class="card text-center">
+                    <div class="card-icon" style="margin: 0 auto 1.5rem;"><i data-lucide="globe"></i></div>
+                    <h3>Global Network</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Access over 45 premium parking locations
+                        across the city with a single digital pass.</p>
+                </div>
+                <div class="card text-center">
+                    <div class="card-icon" style="margin: 0 auto 1.5rem;"><i data-lucide="zap"></i></div>
+                    <h3>Instant Booking</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Reserve your spot in under 30 seconds. No
+                        physical tickets, no waiting in lines.</p>
+                </div>
+                <div class="card text-center">
+                    <div class="card-icon" style="margin: 0 auto 1.5rem;"><i data-lucide="user-check"></i></div>
+                    <h3>Priority Access</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Subscriber-only spots in premium zones.
+                        Guaranteed parking even during peak hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map List Section -->
+    <section class="section" style="background-color: var(--surface-alt);">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Featured Parking Hubs</h2>
+                <p>Top-rated locations with premium amenities and maximum security.</p>
+            </div>
+            <div class="grid-3 reveal" style="gap: 2rem;">
+                <!-- Location Card 1 -->
+                <div class="card" style="padding: 0; overflow: hidden;">
+                    <img src="https://s3-media0.fl.yelpcdn.com/bphoto/ovRBwpKKCByAm-43JJu_-A/348s.jpg" alt="Garage"
+                        style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 1.5rem;">
+                        <span class="badge badge-secondary mb-2">Open 24/7</span>
+                        <h4>Grand Plaza Central</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">123 Business Way,
+                            Downtown CBD</p>
+                        <div class="flex" style="justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 800; color: var(--primary);">$12.00 / hr</span>
+                            <a href="locations.html" class="btn btn-outline"
+                                style="padding: 0.4rem 1rem; font-size: 0.8rem;">Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Location Card 2 -->
+                <div class="card" style="padding: 0; overflow: hidden;">
+                    <img src="https://images.unsplash.com/photo-1506521781263-d8422e82f27a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Garage" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 1.5rem;">
+                        <span class="badge badge-primary mb-2">EV Charging</span>
+                        <h4>Skyline Gateway</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">45 Financial St,
+                            North Dist</p>
+                        <div class="flex" style="justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 800; color: var(--primary);">$15.00 / hr</span>
+                            <a href="locations.html" class="btn btn-outline"
+                                style="padding: 0.4rem 1rem; font-size: 0.8rem;">Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Location Card 3 -->
+                <div class="card" style="padding: 0; overflow: hidden;">
+                    <img src="https://walkerconsultants.com/wp-content/uploads/2020/12/Riverside-Hospital-interior-blue-level_web.jpg"
+                        alt="Garage" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 1.5rem;">
+                        <span class="badge badge-secondary mb-2">Security+</span>
+                        <h4>Riverside Premium</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">88 River Park
+                            Road, West End</p>
+                        <div class="flex" style="justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 800; color: var(--primary);">$10.00 / hr</span>
+                            <a href="locations.html" class="btn btn-outline"
+                                style="padding: 0.4rem 1rem; font-size: 0.8rem;">Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section">
+        <div class="container">
+            <div class="grid-2 reveal" style="align-items: center; gap: 3rem;">
+                <!-- Left Side: Image -->
+                <div style="position: relative; height: 100%; min-height: 480px;">
+                    <img src="https://images.pexels.com/photos/20589694/pexels-photo-20589694.jpeg"
+                        alt="Smart Parking Experience"
+                        style="width: 100%; height: 100%; min-height: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); object-fit: cover;">
+                </div>
+
+                <!-- Right Side: Content -->
+                <div style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                    <h2 class="mb-2">Experience the Future of Parking</h2>
+                    <div style="width: 50px; height: 3px; background: var(--primary); margin-bottom: 1.5rem;"></div>
+                    <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 2rem; line-height: 1.6;">
+                        We combine cutting-edge technology with premium facilities to ensure a seamless parking
+                        experience.
+                    </p>
+
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="display: flex; gap: 1rem; margin-bottom: 1.25rem; align-items: flex-start;">
+                            <div
+                                style="background: rgba(37, 99, 235, 0.1); color: var(--primary); padding: 0.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i data-lucide="clock" style="width: 20px; height: 20px;"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">Real-Time Availability</h4>
+                                <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">Check open spots
+                                    instantly before you arrive.</p>
+                            </div>
+                        </li>
+                        <li style="display: flex; gap: 1rem; margin-bottom: 1.25rem; align-items: flex-start;">
+                            <div
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--secondary); padding: 0.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i data-lucide="shield-check" style="width: 20px; height: 20px;"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">Secure & Monitored</h4>
+                                <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">24/7 surveillance for
+                                    your peace of mind.</p>
+                            </div>
+                        </li>
+                        <li style="display: flex; gap: 1rem; margin-bottom: 1.25rem; align-items: flex-start;">
+                            <div
+                                style="background: rgba(245, 158, 11, 0.1); color: var(--accent); padding: 0.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i data-lucide="ticket" style="width: 20px; height: 20px;"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">Flexible Monthly Passes</h4>
+                                <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">Save more with our
+                                    customizable subscriptions.</p>
+                            </div>
+                        </li>
+                        <li style="display: flex; gap: 1rem; margin-bottom: 0; align-items: flex-start;">
+                            <div
+                                style="background: rgba(59, 130, 246, 0.1); color: #6366f1; padding: 0.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i data-lucide="smartphone" style="width: 20px; height: 20px;"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">Easy Digital Booking</h4>
+                                <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">Book and pay directly
+                                    from your phone.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <section class="section" style="padding: 2rem 0;">
+            <div class="container reveal">
+                <div
+                    style="background: linear-gradient(135deg, var(--primary) 0%, #1e40af 100%); padding: 2.5rem; border-radius: var(--radius-lg); text-align: center; color: white; box-shadow: var(--shadow-lg);">
+                    <h2 style="color: white; margin-bottom: 0.75rem;">Ready to Simplify Your Parking?</h2>
+                    <p
+                        style="font-size: 1.1rem; opacity: 0.9; margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                        Join thousands of smart commuters who save time and money every day with ParkSmart.</p>
+                    <div class="cta-buttons">
+                        <a href="signup.html" class="btn"
+                            style="background: white; color: var(--primary); padding: 0.8rem 2rem; transition: var(--transition);">Get
+                            Started for Free</a>
+                        <a href="plans.html" class="btn btn-outline"
+                            style="border-color: white; color: white; padding: 0.8rem 2rem; transition: var(--transition);">View
+                            Pricing</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <!-- Footer -->
+        <div id="parksmart-footer"></div>
+
+        <button class="back-to-top" id="backToTop">
+            <i data-lucide="chevron-up"></i>
+        </button>
+
+        <script src="assets/js/main.js"></script>
+</body>
+
+</html>

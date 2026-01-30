@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | ParkSmart</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="apple-touch-icon" href="assets/images/favicon.svg">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 5rem;
+            margin-top: 4rem;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .info-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--surface-alt);
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .info-item:hover .info-icon {
+            background: var(--primary);
+            color: white;
+            transform: rotate(-5deg);
+        }
+
+        .contact-social {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--surface-alt);
+            color: var(--text);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .map-section {
+            margin: 3rem auto 0;
+            width: 100%;
+            max-width: 100%;
+            height: 350px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            display: block;
+        }
+
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo"><i data-lucide="parking-circle"></i> ParkSmart</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home 1</a></li>
+                <li><a href="home-2.html" class="nav-link">Home 2</a></li>
+                <li><a href="locations.html" class="nav-link">Locations</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="plans.html" class="nav-link">Pricing</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" style="margin-left: auto; margin-right: 0.5rem;"><i
+                    data-lucide="moon"></i></button>
+            <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()"><i
+                    data-lucide="menu"></i></button>
+            <div class="nav-actions">
+                <div class="dropdown">
+                    <button class="btn btn-primary"><i data-lucide="layout-dashboard"></i> Dashboards <i
+                            data-lucide="chevron-down"></i></button>
+                    <div class="dropdown-menu">
+                        <a href="dashboards/customer/index.html" class="dropdown-item"><i data-lucide="user"></i>
+                            User</a>
+                        <a href="dashboards/staff/index.html" class="dropdown-item"><i data-lucide="users"></i>
+                            Staff</a>
+                        <a href="dashboards/admin/index.html" class="dropdown-item"><i data-lucide="shield-check"></i>
+                            Admin</a>
+                    </div>
+                </div>
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signup.html" class="btn btn-signup">Signup</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html" class="mobile-nav-link">Home 1</a></li>
+            <li><a href="home-2.html" class="mobile-nav-link">Home 2</a></li>
+            <li><a href="locations.html" class="mobile-nav-link">Locations</a></li>
+            <li><a href="about.html" class="mobile-nav-link">About</a></li>
+            <li><a href="plans.html" class="mobile-nav-link">Pricing</a></li>
+            <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+        </ul>
+        <div class="mobile-actions">
+            <div class="dashboard-group">
+                <span class="dashboard-label">Dashboards</span>
+                <a href="dashboards/customer/index.html" class="mobile-nav-link"><i data-lucide="user"></i> User</a>
+                <a href="dashboards/staff/index.html" class="mobile-nav-link"><i data-lucide="users"></i> Staff</a>
+                <a href="dashboards/admin/index.html" class="mobile-nav-link"><i data-lucide="shield-check"></i>
+                    Admin</a>
+            </div>
+            <a href="login.html" class="btn btn-outline" style="width: 100%; justify-content: center;">Login</a>
+            <a href="signup.html" class="btn btn-signup" style="width: 100%; justify-content: center;">Signup</a>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <header class="hero" style="padding: 10rem 0 3rem; text-align: center;">
+        <div class="container reveal">
+            <h1 class="mb-2">Get in Touch</h1>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto; font-size: 1.1rem;">Have questions
+                about our monthly passes or need support? Our team is available 24/7.</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="reveal">
+                    <h2 class="mb-4">Contact Information</h2>
+                    <p class="mb-4" style="color: var(--text-muted); line-height: 1.8;">Reach out to us via any of these
+                        channels. Our support team is available 24/7 for emergency parking assistance and account
+                        inquiries.</p>
+
+                    <div class="info-item">
+                        <div class="info-icon"><i data-lucide="mail"></i></div>
+                        <div>
+                            <h4 class="mb-1">Email Support</h4>
+                            <p style="color: var(--text-muted); font-size: 0.95rem;">
+                                support@parksmart.com<br>sales@parksmart.com</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon"><i data-lucide="phone"></i></div>
+                        <div>
+                            <h4 class="mb-1">Call Anywhere</h4>
+                            <p style="color: var(--text-muted); font-size: 0.95rem;">+1 (555) 123-4567<br>+1 (555)
+                                987-6543</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon"><i data-lucide="map-pin"></i></div>
+                        <div>
+                            <h4 class="mb-1">Office HQ</h4>
+                            <p style="color: var(--text-muted); font-size: 0.95rem;">ParkSmart HQ, 500 Innovation
+                                Way,<br>Suite 200, Tech City, TC 12345</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-social">
+                        <h4 class="mb-1">Follow Us</h4>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon"><i data-lucide="facebook"></i></a>
+                            <a href="#" class="social-icon"><i data-lucide="twitter"></i></a>
+                            <a href="#" class="social-icon"><i data-lucide="instagram"></i></a>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- Contact Form -->
+                <div class="card reveal">
+                    <h3 class="mb-4">Send a Message</h3>
+                    <form>
+                        <div class="grid-2" style="gap: 1.5rem;">
+                            <div class="form-group mb-3">
+                                <label
+                                    style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.5rem;">Full
+                                    Name</label>
+                                <input type="text" class="form-control" placeholder="John Doe"
+                                    style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 0.5rem; background: var(--surface-alt); color: var(--text);">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label
+                                    style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.5rem;">Email
+                                    Address</label>
+                                <input type="email" class="form-control" placeholder="john@example.com"
+                                    style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 0.5rem; background: var(--surface-alt); color: var(--text);">
+                            </div>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label
+                                style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.5rem;">Message</label>
+                            <textarea rows="6" class="form-control" placeholder="How can we help you?"
+                                style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 0.5rem; background: var(--surface-alt); color: var(--text); font-family: inherit; resize: none;"></textarea>
+                        </div>
+                        <div style="text-align: center; margin-top: 0;">
+                            <button type="submit" class="btn btn-primary"
+                                style="padding: 1rem 3rem; min-width: 200px;">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container reveal">
+            <div class="map-section">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.9537353153166!3d-37.8162797797517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce6e0!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sin!4v1625066921382!5m2!1sen!2sin"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <div id="parksmart-footer"></div>
+
+    <button class="back-to-top" id="backToTop">
+        <i data-lucide="chevron-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard | ParkSmart</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dashboard.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body data-theme="light">
+    <div class="dashboard-vh">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="../../index.html" class="logo">
+                    <i data-lucide="parking-circle"></i> ParkSmart
+                </a>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="index.html" class="menu-item active"><i data-lucide="layout-grid"></i>
+                    <span>Overview</span></a>
+                <a href="passes.html" class="menu-item"><i data-lucide="ticket"></i> <span>My Passes</span></a>
+                <a href="buy-pass.html" class="menu-item"><i data-lucide="plus-circle"></i> <span>Buy/Renew
+                        Pass</span></a>
+                <a href="map.html" class="menu-item"><i data-lucide="map"></i> <span>Availability Map</span></a>
+                <a href="history.html" class="menu-item"><i data-lucide="history"></i> <span>Payment History</span></a>
+                <a href="notifications.html" class="menu-item"><i data-lucide="bell"></i> <span>Notifications</span></a>
+                <a href="profile.html" class="menu-item"><i data-lucide="user-circle"></i> <span>Vehicle &
+                        Profile</span></a>
+                <a href="settings.html" class="menu-item"><i data-lucide="settings"></i> <span>Settings</span></a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../../index.html" class="menu-item" style="color: #ef4444;"><i data-lucide="log-out"></i>
+                    <span>Logout</span></a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-dashboard">
+            <header class="dashboard-header">
+                <div class="flex-center gap-1">
+                    <h3 style="margin: 0;">Welcome, Alex!</h3>
+                </div>
+                <div class="flex-center gap-1">
+                    <button id="theme-toggle" class="theme-toggle"><i data-lucide="moon"></i></button>
+                    <div style="width: 1px; height: 30px; background: var(--border); margin: 0 0.5rem;"></div>
+                    <div class="user-badge" style="cursor: pointer;">
+                        <span style="font-weight: 600; font-size: 0.9rem;">Alex Thompson</span>
+                        <div class="avatar">AT</div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-body">
+                <div class="stats-grid">
+                    <div class="stat-card reveal-up">
+                        <div class="stat-header">
+                            <div class="stat-icon" style="background: rgba(37, 99, 235, 0.1); color: var(--primary);"><i
+                                    data-lucide="ticket"></i></div>
+                            <span class="badge badge-secondary">Active</span>
+                        </div>
+                        <div class="stat-value">1</div>
+                        <div class="stat-label">Active Passes</div>
+                    </div>
+                    <div class="stat-card reveal-up">
+                        <div class="stat-header">
+                            <div class="stat-icon"
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--secondary);"><i
+                                    data-lucide="calendar"></i></div>
+                        </div>
+                        <div class="stat-value">22 Days</div>
+                        <div class="stat-label">Until Renewal</div>
+                    </div>
+                    <div class="stat-card reveal-up">
+                        <div class="stat-header">
+                            <div class="stat-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--accent);"><i
+                                    data-lucide="parking-circle"></i></div>
+                        </div>
+                        <div class="stat-value">48</div>
+                        <div class="stat-label">Total Parkings</div>
+                    </div>
+                    <div class="stat-card reveal-up">
+                        <div class="stat-header">
+                            <div class="stat-icon" style="background: rgba(59, 130, 246, 0.1); color: #6366f1;"><i
+                                    data-lucide="credit-card"></i></div>
+                        </div>
+                        <div class="stat-value">$1,240</div>
+                        <div class="stat-label">Total Spent</div>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <!-- Ongoing Session -->
+                    <div class="table-card">
+                        <div class="card-header">
+                            <h4 style="margin: 0;">Active Parking</h4>
+                            <span class="badge badge-primary">IN PROGRESS</span>
+                        </div>
+                        <div style="padding: 2rem; text-align: center;">
+                            <div
+                                style="font-size: 3rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem;">
+                                03:45:12</div>
+                            <p style="color: var(--text-muted); margin-bottom: 2rem;">Current stay at Grand Plaza Garage
+                            </p>
+                            <div class="flex-center gap-1"
+                                style="justify-content: center; background: var(--surface-alt); padding: 1rem; border-radius: 0.5rem; margin-bottom: 2rem;">
+                                <i data-lucide="map-pin" style="width: 18px; color: var(--primary);"></i>
+                                <span style="font-weight: 600;">Slot #B-24, Level 2</span>
+                            </div>
+                            <button class="btn btn-outline" style="color: #ef4444; border-color: #ef4444;">End
+                                Session</button>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="table-card">
+                        <div class="card-header">
+                            <h4 style="margin: 0;">Recent Activities</h4>
+                            <a href="#" style="font-size: 0.85rem; color: var(--primary);">View All</a>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Location</th>
+                                    <th>Date</th>
+                                    <th>Cost</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Skyline Gateway</td>
+                                    <td>Jan 28, 2026</td>
+                                    <td>$15.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Riverside Hub</td>
+                                    <td>Jan 26, 2026</td>
+                                    <td>$8.50</td>
+                                </tr>
+                                <tr>
+                                    <td>Grand Plaza</td>
+                                    <td>Jan 24, 2026</td>
+                                    <td>$12.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Grand Plaza</td>
+                                    <td>Jan 22, 2026</td>
+                                    <td>$12.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Use simpler theme toggle for dashboards
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            const current = body.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            updateIcon(next);
+        });
+
+        function updateIcon(theme) {
+            const icon = themeToggle.querySelector('i');
+            if (theme === 'dark') {
+                icon.setAttribute('data-lucide', 'sun');
+            } else {
+                icon.setAttribute('data-lucide', 'moon');
+            }
+            if (window.lucide) lucide.createIcons();
+        }
+
+        const saved = localStorage.getItem('theme') || 'light';
+        body.setAttribute('data-theme', saved);
+        updateIcon(saved);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) lucide.createIcons();
+        });
+    </script>
+</body>
+
+</html>
+
+

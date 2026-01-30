@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plans & Pricing | ParkSmart</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="apple-touch-icon" href="assets/images/favicon.svg">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media (max-width: 992px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo"><i data-lucide="parking-circle"></i> ParkSmart</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home 1</a></li>
+                <li><a href="home-2.html" class="nav-link">Home 2</a></li>
+                <li><a href="locations.html" class="nav-link">Locations</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="plans.html" class="nav-link active">Pricing</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" style="margin-left: auto; margin-right: 0.5rem;"><i
+                    data-lucide="moon"></i></button>
+            <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()"><i
+                    data-lucide="menu"></i></button>
+            <div class="nav-actions">
+                <div class="dropdown">
+                    <button class="btn btn-primary"><i data-lucide="layout-dashboard"></i> Dashboards <i
+                            data-lucide="chevron-down"></i></button>
+                    <div class="dropdown-menu">
+                        <a href="dashboards/customer/index.html" class="dropdown-item"><i data-lucide="user"></i>
+                            User</a>
+                        <a href="dashboards/staff/index.html" class="dropdown-item"><i data-lucide="users"></i>
+                            Staff</a>
+                        <a href="dashboards/admin/index.html" class="dropdown-item"><i data-lucide="shield-check"></i>
+                            Admin</a>
+                    </div>
+                </div>
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signup.html" class="btn btn-signup">Signup</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html" class="mobile-nav-link">Home 1</a></li>
+            <li><a href="home-2.html" class="mobile-nav-link">Home 2</a></li>
+            <li><a href="locations.html" class="mobile-nav-link">Locations</a></li>
+            <li><a href="about.html" class="mobile-nav-link">About</a></li>
+            <li><a href="plans.html" class="mobile-nav-link">Pricing</a></li>
+            <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+        </ul>
+        <div class="mobile-actions">
+            <div class="dashboard-group">
+                <span class="dashboard-label">Dashboards</span>
+                <a href="dashboards/customer/index.html" class="mobile-nav-link"><i data-lucide="user"></i> User</a>
+                <a href="dashboards/staff/index.html" class="mobile-nav-link"><i data-lucide="users"></i> Staff</a>
+                <a href="dashboards/admin/index.html" class="mobile-nav-link"><i data-lucide="shield-check"></i>
+                    Admin</a>
+            </div>
+            <a href="login.html" class="btn btn-outline" style="width: 100%; justify-content: center;">Login</a>
+            <a href="signup.html" class="btn btn-signup" style="width: 100%; justify-content: center;">Signup</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="hero" style="padding: 10rem 0 3rem; text-align: center;">
+        <div class="container reveal">
+            <h1 class="mb-2">Simple, Transparent Pricing</h1>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">Choose a monthly pass that fits your
+                lifestyle. Save up to 40% compared to daily rates.</p>
+        </div>
+    </header>
+
+    <!-- Pricing Cards -->
+    <section class="section">
+        <div class="container">
+            <div class="pricing-grid reveal">
+                <!-- Plan 1 -->
+                <div class="card">
+                    <div style="margin-bottom: 2rem;">
+                        <h3 class="mb-1">Standard</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">For local commuters.</p>
+                    </div>
+                    <div style="font-size: 2.8rem; font-weight: 800; margin-bottom: 2rem;">$99<span
+                            style="font-size: 1rem; color: var(--text-muted); font-weight: 400;">/mo</span></div>
+                    <ul style="margin-bottom: 2.5rem; flex: 1;">
+                        <li style="margin-bottom: 1rem; display: flex; gap: 0.75rem;"><i data-lucide="check"
+                                style="color: var(--secondary); width: 20px;"></i> <span>1 Specific Garage</span></li>
+                        <li style="margin-bottom: 1rem; display: flex; gap: 0.75rem;"><i data-lucide="check"
+                                style="color: var(--secondary); width: 20px;"></i> <span>24/7 Unlimited Entry</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; gap: 0.75rem;"><i data-lucide="check"
+                                style="color: var(--secondary); width: 20px;"></i> <span>1 Registered Vehicle</span>
+                        </li>
+                    </ul>
+                    <a href="signup.html" class="btn btn-outline w-100">Get Started</a>
+                </div>
+
+                <!-- Plan 2 FEATURED -->
+                <div class="card featured"
+                    style="border-top: 6px solid var(--secondary); transform: scale(1.05); box-shadow: var(--shadow-lg); z-index: 2; background: var(--surface);">
+                    <div
+                        style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--secondary); color: white; padding: 0.25rem 1rem; border-radius: 20px; font-size: 0.75rem; font-weight: 800;">
+                        BEST VALUE</div>
+                    <div style="margin-bottom: 2rem;">
+                        <h3 class="mb-1">Premium</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">For the modern traveler.</p>
+                    </div>
+                    <div style="font-size: 2.8rem; font-weight: 800; margin-bottom: 2rem;">$149<span
+                            style="font-size: 1rem; color: var(--text-muted); font-weight: 400;">/mo</span></div>
+                    <ul style="margin-bottom: 2.5rem; flex: 1;">
+                        <li style="margin-bottom: 1rem; display: flex; gap: 0.75rem;"><i data-lucide="check"
+                                style="color: var(--secondary); width: 20px;"></i> <span>All Network Garages</span></li>
+                        <li style="margin-bottom: 1rem; display: flex; gap: 0.75rem;"><i data-lucide="check"
+                                style="color: var(--secondary); width: 20px;"></i> <span>Priority Ground Spots</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; gap: 0.75rem;"><i data-lucide="check"
+                                style="color: var(--secondary); width: 20px;"></i> <span>2 Registered Vehicles</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; gap: 0.75rem;"><i data-lucide="check"
+                                style="color: var(--secondary); width: 20px;"></i> <span>EV Charging Access</span></li>
+                    </ul>
+                    <a href="signup.html" class="btn btn-primary w-100" style="padding: 1rem;">Choose Premium</a>
+                </div>
+
+                <!-- Plan 3 -->
+                <div class="card">
+                    <div style="margin-bottom: 2rem;">
+                        <h3 class="mb-1">Enterprise</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">For corporate teams.</p>
+                    </div>
+                    <div style="font-size: 2.8rem; font-weight: 800; margin-bottom: 2rem;">$299<span
+                            style="font-size: 1rem; color: var(--text-muted); font-weight: 400;">/mo</span></div>
+                    <ul style="margin-bottom: 2.5rem; flex: 1;">
+                        <li style="margin-bottom: 1rem; display: flex; gap: 0.75rem;"><i data-lucide="check"
+                                style="color: var(--secondary); width: 20px;"></i> <span>Custom Fleet Mgmt</span></li>
+                        <li style="margin-bottom: 1rem; display: flex; gap: 0.75rem;"><i data-lucide="check"
+                                style="color: var(--secondary); width: 20px;"></i> <span>Dedicated Account Mgr</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; gap: 0.75rem;"><i data-lucide="check"
+                                style="color: var(--secondary); width: 20px;"></i> <span>LPR Integration</span></li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline w-100">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" style="background-color: var(--surface-alt);">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Frequently Asked</h2>
+                <p>Common questions about our plans and services.</p>
+            </div>
+            <div class="grid-2 reveal" style="gap: 2rem;">
+                <div class="card" style="padding: 1.5rem;">
+                    <h4 class="mb-2">How do I access the garage?</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">You can use our mobile app's QR code or
+                        register your License Plate for automated entry via camera recognition.</p>
+                </div>
+                <div class="card" style="padding: 1.5rem;">
+                    <h4 class="mb-2">Can I cancel anytime?</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Yes, our monthly passes are non-contractual.
+                        You can cancel at the end of any billing cycle from your dashboard.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <div id="parksmart-footer"></div>
+
+    <button class="back-to-top" id="backToTop">
+        <i data-lucide="chevron-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

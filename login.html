@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | ParkSmart</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--background);
+            padding: 2rem;
+        }
+
+        .auth-card {
+            width: 100%;
+            max-width: 450px;
+            background: var(--surface);
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            background: var(--surface-alt);
+            color: var(--text);
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            background: var(--surface);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="auth-container">
+        <div class="auth-card reveal">
+            <div class="text-center mb-4">
+                <a href="index.html" class="logo mb-3" style="font-size: 2rem; justify-content: center; display: flex;">
+                    <i data-lucide="parking-circle"></i> ParkSmart
+                </a>
+                <h2 style="margin-bottom: 0.5rem; font-size: 1.75rem;">Welcome Back</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Login to manage your parking passes.</p>
+            </div>
+
+            <form>
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <div style="position: relative;">
+                        <input type="email" class="form-control" placeholder="name@example.com"
+                            style="padding-left: 2.75rem;">
+                        <i data-lucide="mail"
+                            style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); width: 18px; color: var(--text-muted);"></i>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="flex" style="justify-content: space-between;">
+                        <label class="form-label">Password</label>
+                        <a href="forgot-password.html"
+                            style="font-size: 0.8rem; color: var(--primary); font-weight: 700;">Forgot?</a>
+                    </div>
+                    <div style="position: relative;">
+                        <input type="password" class="form-control" placeholder="••••••••"
+                            style="padding-left: 2.75rem;">
+                        <i data-lucide="lock"
+                            style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); width: 18px; color: var(--text-muted);"></i>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary w-100" style="padding: 1rem; margin-bottom: 2rem;">Sign
+                    In</button>
+
+                <p style="text-align: center; color: var(--text-muted); font-size: 0.9rem;">
+                    Don't have an account? <a href="signup.html" style="color: var(--primary); font-weight: 800;">Sign
+                        Up</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

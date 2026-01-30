@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | ParkSmart</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="apple-touch-icon" href="assets/images/favicon.svg">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo"><i data-lucide="parking-circle"></i> ParkSmart</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home 1</a></li>
+                <li><a href="home-2.html" class="nav-link">Home 2</a></li>
+                <li><a href="locations.html" class="nav-link">Locations</a></li>
+                <li><a href="about.html" class="nav-link active">About</a></li>
+                <li><a href="plans.html" class="nav-link">Pricing</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" style="margin-left: auto; margin-right: 0.5rem;"><i
+                    data-lucide="moon"></i></button>
+            <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()"><i
+                    data-lucide="menu"></i></button>
+            <div class="nav-actions">
+                <div class="dropdown">
+                    <button class="btn btn-primary"><i data-lucide="layout-dashboard"></i> Dashboards <i
+                            data-lucide="chevron-down"></i></button>
+                    <div class="dropdown-menu">
+                        <a href="dashboards/customer/index.html" class="dropdown-item"><i data-lucide="user"></i>
+                            User</a>
+                        <a href="dashboards/staff/index.html" class="dropdown-item"><i data-lucide="users"></i>
+                            Staff</a>
+                        <a href="dashboards/admin/index.html" class="dropdown-item"><i data-lucide="shield-check"></i>
+                            Admin</a>
+                    </div>
+                </div>
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signup.html" class="btn btn-signup">Signup</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html" class="mobile-nav-link">Home 1</a></li>
+            <li><a href="home-2.html" class="mobile-nav-link">Home 2</a></li>
+            <li><a href="locations.html" class="mobile-nav-link">Locations</a></li>
+            <li><a href="about.html" class="mobile-nav-link">About</a></li>
+            <li><a href="plans.html" class="mobile-nav-link">Pricing</a></li>
+            <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+        </ul>
+        <div class="mobile-actions">
+            <div class="dashboard-group">
+                <span class="dashboard-label">Dashboards</span>
+                <a href="dashboards/customer/index.html" class="mobile-nav-link"><i data-lucide="user"></i> User</a>
+                <a href="dashboards/staff/index.html" class="mobile-nav-link"><i data-lucide="users"></i> Staff</a>
+                <a href="dashboards/admin/index.html" class="mobile-nav-link"><i data-lucide="shield-check"></i>
+                    Admin</a>
+            </div>
+            <a href="login.html" class="btn btn-outline" style="width: 100%; justify-content: center;">Login</a>
+            <a href="signup.html" class="btn btn-signup" style="width: 100%; justify-content: center;">Signup</a>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <header class="hero" style="padding: 10rem 0 5rem; text-align: center;">
+        <div class="container reveal">
+            <h1 style="margin-bottom: 1.5rem;">Optimizing Urban Space</h1>
+            <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto; font-size: 1.1rem;">ParkSmart is a
+                leading parking management system designed to make city life easier through smart technology and
+                data-driven solutions.</p>
+        </div>
+    </header>
+
+    <!-- Company Overview -->
+    <section class="section">
+        <div class="container">
+            <div class="grid-2 reveal" style="align-items: center; gap: 5rem;">
+                <div class="hover-scale">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Office"
+                        style="border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); width: 100%; height: 400px; object-fit: cover;">
+                </div>
+                <div>
+                    <span class="badge badge-primary mb-2">Our Story</span>
+                    <h2 class="mb-3">Solving the Urban Parking Crisis</h2>
+                    <p class="mb-3" style="color: var(--text-muted);">Started in 2021, ParkSmart was born out of
+                        frustration with urban congestion. We believed real-time data could connect drivers with empty
+                        spaces instantly.</p>
+                    <p style="color: var(--text-muted);">Today, we manage over 45 locations and serve thousands of daily
+                        commuters, drastically reducing carbon emissions by minimizing cruising time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Cards (Refined per Request) -->
+    <section class="section" style="background-color: var(--surface-alt);">
+        <div class="container">
+            <div class="grid-2 reveal" style="gap: 3rem;">
+                <div class="card" style="padding: 0; overflow: hidden;">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Mission" style="width: 100%; height: 250px; object-fit: cover;">
+                    <div style="padding: 2.5rem;">
+                        <span class="badge badge-primary mb-2">The Mission</span>
+                        <h3 class="mb-2">Efficiency & Transparency</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">To provide the most efficient,
+                            transparent, and technology-driven parking experience for drivers while helping property
+                            owners maximize their assets.</p>
+                    </div>
+                </div>
+                <div class="card" style="padding: 0; overflow: hidden;">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Vision" style="width: 100%; height: 250px; object-fit: cover;">
+                    <div style="padding: 2.5rem;">
+                        <span class="badge badge-secondary mb-2">The Vision</span>
+                        <h3 class="mb-2">Seamless Smart Cities</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">To build a future where smart cities
+                            utilize automated mobility solutions to eliminate parking stress and create more livable
+                            urban environments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Explanation -->
+    <section id="technology" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Smart Parking Technology</h2>
+                <p>We combine IoT hardware with cloud-based software to deliver real-time accuracy.</p>
+            </div>
+            <div class="grid-3 reveal" style="gap: 3rem;">
+                <div class="card text-center">
+                    <div class="card-icon" style="margin-left: auto; margin-right: auto;"><i data-lucide="cpu"></i>
+                    </div>
+                    <h4 class="mb-2">IoT Sensors</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">High-precision ultrasonic sensors detect
+                        vehicle presence in milliseconds.</p>
+                </div>
+                <div class="card text-center">
+                    <div class="card-icon" style="margin-left: auto; margin-right: auto;"><i data-lucide="cloud"></i>
+                    </div>
+                    <h4 class="mb-2">Cloud Synching</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Data is instantly processed, updating live
+                        availability across all platforms.</p>
+                </div>
+                <div class="card text-center">
+                    <div class="card-icon" style="margin-left: auto; margin-right: auto;"><i
+                            data-lucide="smartphone"></i></div>
+                    <h4 class="mb-2">Digital Pass</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Users access data via our mobile apps for a
+                        seamless entry/exit experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Reach -->
+    <section class="section" style="background-color: var(--surface-alt);">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Strategic Locations</h2>
+                <p>Operating in 45+ premium garages across major metropolitan areas.</p>
+            </div>
+            <div class="grid-4 reveal" style="gap: 1.5rem;">
+                <div class="card"
+                    style="padding: 1.5rem; text-align: center; border: none; background: var(--surface);">
+                    <i data-lucide="map-pin" style="color: var(--primary); margin-bottom: 1rem;"></i>
+                    <h4 style="margin: 0; font-size: 1.1rem;">Downtown CBD</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">15 Garages</p>
+                </div>
+                <div class="card"
+                    style="padding: 1.5rem; text-align: center; border: none; background: var(--surface);">
+                    <i data-lucide="map-pin" style="color: var(--primary); margin-bottom: 1rem;"></i>
+                    <h4 style="margin: 0; font-size: 1.1rem;">Financial Dist</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">8 Garages</p>
+                </div>
+                <div class="card"
+                    style="padding: 1.5rem; text-align: center; border: none; background: var(--surface);">
+                    <i data-lucide="map-pin" style="color: var(--primary); margin-bottom: 1rem;"></i>
+                    <h4 style="margin: 0; font-size: 1.1rem;">Tech Hub</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">12 Garages</p>
+                </div>
+                <div class="card"
+                    style="padding: 1.5rem; text-align: center; border: none; background: var(--surface);">
+                    <i data-lucide="map-pin" style="color: var(--primary); margin-bottom: 1rem;"></i>
+                    <h4 style="margin: 0; font-size: 1.1rem;">Riverside</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">10 Garages</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <div id="parksmart-footer"></div>
+
+    <button class="back-to-top" id="backToTop">
+        <i data-lucide="chevron-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Passes | Customer Dashboard</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dashboard.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body data-theme="light">
+    <div class="dashboard-vh">
+        <aside class="sidebar">
+            <div class="sidebar-header"><a href="../../index.html" class="logo"><i data-lucide="parking-circle"></i>
+                    ParkSmart</a></div>
+            <nav class="sidebar-menu">
+                <a href="index.html" class="menu-item"><i data-lucide="layout-grid"></i> <span>Overview</span></a>
+                <a href="passes.html" class="menu-item active"><i data-lucide="ticket"></i> <span>My Passes</span></a>
+                <a href="buy-pass.html" class="menu-item"><i data-lucide="plus-circle"></i> <span>Buy/Renew
+                        Pass</span></a>
+                <a href="map.html" class="menu-item"><i data-lucide="map"></i> <span>Availability Map</span></a>
+                <a href="history.html" class="menu-item"><i data-lucide="history"></i> <span>Payment History</span></a>
+                <a href="notifications.html" class="menu-item"><i data-lucide="bell"></i> <span>Notifications</span></a>
+                <a href="profile.html" class="menu-item"><i data-lucide="user-circle"></i> <span>Vehicle &
+                        Profile</span></a>
+                <a href="settings.html" class="menu-item"><i data-lucide="settings"></i> <span>Settings</span></a>
+            </nav>
+        </aside>
+        <main class="main-dashboard">
+            <header class="dashboard-header">
+                <h3>My Monthly Passes</h3>
+                <div class="flex-center gap-1">
+                    <button id="theme-toggle" class="theme-toggle"><i data-lucide="moon"></i></button>
+                    <div class="user-badge">
+                        <div class="avatar">AT</div>
+                    </div>
+                </div>
+            </header>
+            <div class="content-body">
+                <div class="table-card">
+                    <div class="card-header">
+                        <h4>Active Subscriptions</h4>
+                    </div>
+                    <div style="padding: 2rem;">
+                        <div
+                            style="border: 2px solid var(--primary); padding: 2rem; border-radius: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <h3 class="mb-1">Premium Monthly Pass</h3>
+                                <p style="color: var(--text-muted);">Valid for all Downtown network garages.</p>
+                                <div class="flex gap-1 mt-4" style="margin-top: 1rem;">
+                                    <span class="badge badge-secondary">Active</span>
+                                    <span style="font-size: 0.85rem; color: var(--text-muted);">Renews on Feb 22,
+                                        2026</span>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div style="font-size: 2rem; font-weight: 800; color: var(--primary);">$149.00</div>
+                                <p style="font-size: 0.8rem; color: var(--text-muted);">per month</p>
+                                <button class="btn btn-outline" style="margin-top: 1rem;">Manage Plan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../../assets/js/main.js"></script>
+</body>
+
+</html>
+
+

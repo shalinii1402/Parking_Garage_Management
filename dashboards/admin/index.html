@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | ParkSmart</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dashboard.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .chart-placeholder {
+            height: 200px;
+            background: var(--surface-alt);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .chart-bar {
+            flex: 1;
+            background: var(--primary);
+            border-radius: 4px 4px 0 0;
+            transition: var(--transition);
+        }
+
+        .chart-bar:hover {
+            background: var(--secondary);
+        }
+    </style>
+</head>
+
+<body data-theme="light">
+    <div class="dashboard-vh">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="../../index.html" class="logo">
+                    <i data-lucide="parking-circle"></i> ParkSmart <span
+                        style="font-size: 0.6rem; background: var(--primary); color: white; padding: 2px 5px; border-radius: 4px; vertical-align: middle;">ADMIN</span>
+                </a>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="index.html" class="menu-item active"><i data-lucide="layout-dashboard"></i> <span>Global
+                        KPI</span></a>
+                <a href="garages.html" class="menu-item"><i data-lucide="building-2"></i> <span>Manage
+                        Garages</span></a>
+                <a href="slots.html" class="menu-item"><i data-lucide="grid-3x3"></i> <span>Parking Slots</span></a>
+                <a href="passes.html" class="menu-item"><i data-lucide="ticket"></i> <span>Pass Management</span></a>
+                <a href="pricing.html" class="menu-item"><i data-lucide="dollar-sign"></i> <span>Pricing &
+                        Plans</span></a>
+                <a href="users.html" class="menu-item"><i data-lucide="users"></i> <span>Users & Staff</span></a>
+                <a href="payments.html" class="menu-item"><i data-lucide="wallet"></i> <span>Payments</span></a>
+                <a href="reports.html" class="menu-item"><i data-lucide="bar-chart-3"></i> <span>Reports &
+                        Stats</span></a>
+                <a href="map-mgmt.html" class="menu-item"><i data-lucide="map"></i> <span>Map Mgmt</span></a>
+                <a href="settings.html" class="menu-item"><i data-lucide="settings"></i> <span>System
+                        Settings</span></a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../../index.html" class="menu-item" style="color: #ef4444;"><i data-lucide="log-out"></i>
+                    <span>Logout</span></a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-dashboard">
+            <header class="dashboard-header">
+                <div class="flex-center gap-1">
+                    <h3 style="margin: 0;">Global Performance Dashboard</h3>
+                </div>
+                <div class="flex-center gap-1">
+                    <div
+                        style="background: var(--surface-alt); padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.85rem; font-weight: 600; color: var(--text-muted); display: flex; align-items: center; gap: 0.5rem;">
+                        <i data-lucide="calendar" style="width: 16px;"></i> Last 30 Days <i data-lucide="chevron-down"
+                            style="width: 14px;"></i>
+                    </div>
+                    <button id="theme-toggle" class="theme-toggle"><i data-lucide="moon"></i></button>
+                    <div class="user-badge">
+                        <div class="avatar" style="background: var(--primary);">AD</div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-body">
+                <div class="stats-grid">
+                    <div class="stat-card reveal-up">
+                        <div class="stat-header">
+                            <div class="stat-icon" style="background: rgba(37, 99, 235, 0.1); color: var(--primary);"><i
+                                    data-lucide="banknote"></i></div>
+                            <span style="color: var(--secondary); font-size: 0.75rem; font-weight: 700;">+12% ↑</span>
+                        </div>
+                        <div class="stat-value">$142,500</div>
+                        <div class="stat-label">Total Revenue</div>
+                    </div>
+                    <div class="stat-card reveal-up">
+                        <div class="stat-header">
+                            <div class="stat-icon"
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--secondary);"><i
+                                    data-lucide="users"></i></div>
+                            <span style="color: var(--secondary); font-size: 0.75rem; font-weight: 700;">+4% ↑</span>
+                        </div>
+                        <div class="stat-value">8,542</div>
+                        <div class="stat-label">Active Users</div>
+                    </div>
+                    <div class="stat-card reveal-up">
+                        <div class="stat-header">
+                            <div class="stat-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--accent);"><i
+                                    data-lucide="building"></i></div>
+                        </div>
+                        <div class="stat-value">45</div>
+                        <div class="stat-label">Total Garages</div>
+                    </div>
+                    <div class="stat-card reveal-up">
+                        <div class="stat-header">
+                            <div class="stat-icon" style="background: rgba(99, 102, 241, 0.1); color: #6366f1;"><i
+                                    data-lucide="activity"></i></div>
+                        </div>
+                        <div class="stat-value">92%</div>
+                        <div class="stat-label">Network Occupancy</div>
+                    </div>
+                </div>
+
+                <div class="grid-2 mb-4">
+                    <!-- Revenue Chart Placeholder -->
+                    <div class="table-card" style="padding: 1.5rem;">
+                        <div class="flex" style="justify-content: space-between; margin-bottom: 2rem;">
+                            <h4 style="margin: 0;">Revenue Growth</h4>
+                            <div class="flex gap-1">
+                                <span class="badge badge-primary">Daily</span>
+                                <span class="badge"
+                                    style="background: var(--surface-alt); color: var(--text-muted);">Weekly</span>
+                            </div>
+                        </div>
+                        <div class="chart-placeholder">
+                            <div class="chart-bar" style="height: 40%;"></div>
+                            <div class="chart-bar" style="height: 60%;"></div>
+                            <div class="chart-bar" style="height: 45%;"></div>
+                            <div class="chart-bar" style="height: 80%;"></div>
+                            <div class="chart-bar" style="height: 70%;"></div>
+                            <div class="chart-bar" style="height: 90%;"></div>
+                            <div class="chart-bar" style="height: 65%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Top Garages -->
+                    <div class="table-card">
+                        <div class="card-header">
+                            <h4 style="margin: 0;">Top Performing Garages</h4>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Garage</th>
+                                    <th>Revenue</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Grand Plaza</td>
+                                    <td>$42,000</td>
+                                    <td><span class="badge badge-secondary">Optimal</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Skyline Gateway</td>
+                                    <td>$38,500</td>
+                                    <td><span class="badge badge-secondary">Optimal</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Riverside Hub</td>
+                                    <td>$24,200</td>
+                                    <td><span class="badge badge-primary">Steady</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Recent Payments -->
+                <div class="table-card">
+                    <div class="card-header">
+                        <h4 style="margin: 0;">Recent Transactions</h4>
+                        <button class="btn btn-outline" style="padding: 0.5rem 1rem;">Export CSV</button>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Transaction ID</th>
+                                <th>User</th>
+                                <th>Method</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#TRX-98745</td>
+                                <td class="user-badge">
+                                    <div class="avatar" style="width: 24px; height: 24px; font-size: 0.6rem;">JD</div>
+                                    John Doe
+                                </td>
+                                <td>Visa **** 4242</td>
+                                <td>$149.00</td>
+                                <td><span style="color: var(--secondary); font-weight: 700;">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>#TRX-98744</td>
+                                <td class="user-badge">
+                                    <div class="avatar"
+                                        style="width: 24px; height: 24px; font-size: 0.6rem; background: var(--secondary);">
+                                        SA</div> Sarah Adams
+                                </td>
+                                <td>PayPal</td>
+                                <td>$99.00</td>
+                                <td><span style="color: var(--secondary); font-weight: 700;">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>#TRX-98743</td>
+                                <td class="user-badge">
+                                    <div class="avatar"
+                                        style="width: 24px; height: 24px; font-size: 0.6rem; background: var(--accent);">
+                                        MK</div> Mike King
+                                </td>
+                                <td>Visa **** 1122</td>
+                                <td>$149.00</td>
+                                <td><span style="color: #ef4444; font-weight: 700;">Failed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            const current = body.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            updateIcon(next);
+        });
+
+        function updateIcon(theme) {
+            const icon = themeToggle.querySelector('i');
+            if (theme === 'dark') {
+                icon.setAttribute('data-lucide', 'sun');
+            } else {
+                icon.setAttribute('data-lucide', 'moon');
+            }
+            if (window.lucide) lucide.createIcons();
+        }
+
+        const saved = localStorage.getItem('theme') || 'light';
+        body.setAttribute('data-theme', saved);
+        updateIcon(saved);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) lucide.createIcons();
+        });
+    </script>
+</body>
+
+</html>
+
+

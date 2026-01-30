@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParkSmart | Premium Parking Management System</title>
+    <meta name="description"
+        content="Commercial-ready smart parking management solution with real-time tracking, monthly passes, and advanced dashboards.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="apple-touch-icon" href="assets/images/favicon.svg">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo"><i data-lucide="parking-circle"></i> ParkSmart</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link active">Home 1</a></li>
+                <li><a href="home-2.html" class="nav-link">Home 2</a></li>
+                <li><a href="locations.html" class="nav-link">Locations</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="plans.html" class="nav-link">Pricing</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" style="margin-left: auto; margin-right: 0.5rem;"><i
+                    data-lucide="moon"></i></button>
+            <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()"><i
+                    data-lucide="menu"></i></button>
+            <div class="nav-actions">
+                <div class="dropdown">
+                    <button class="btn btn-primary"><i data-lucide="layout-dashboard"></i> Dashboards <i
+                            data-lucide="chevron-down"></i></button>
+                    <div class="dropdown-menu">
+                        <a href="dashboards/customer/index.html" class="dropdown-item"><i data-lucide="user"></i>
+                            User</a>
+                        <a href="dashboards/staff/index.html" class="dropdown-item"><i data-lucide="users"></i>
+                            Staff</a>
+                        <a href="dashboards/admin/index.html" class="dropdown-item"><i data-lucide="shield-check"></i>
+                            Admin</a>
+                    </div>
+                </div>
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signup.html" class="btn btn-signup">Signup</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html" class="mobile-nav-link">Home 1</a></li>
+            <li><a href="home-2.html" class="mobile-nav-link">Home 2</a></li>
+            <li><a href="locations.html" class="mobile-nav-link">Locations</a></li>
+            <li><a href="about.html" class="mobile-nav-link">About</a></li>
+            <li><a href="plans.html" class="mobile-nav-link">Pricing</a></li>
+            <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+        </ul>
+        <div class="mobile-actions">
+            <div class="dashboard-group">
+                <span class="dashboard-label">Dashboards</span>
+                <a href="dashboards/customer/index.html" class="mobile-nav-link"><i data-lucide="user"></i> User</a>
+                <a href="dashboards/staff/index.html" class="mobile-nav-link"><i data-lucide="users"></i> Staff</a>
+                <a href="dashboards/admin/index.html" class="mobile-nav-link"><i data-lucide="shield-check"></i>
+                    Admin</a>
+            </div>
+            <a href="login.html" class="btn btn-outline" style="width: 100%; justify-content: center;">Login</a>
+            <a href="signup.html" class="btn btn-signup" style="width: 100%; justify-content: center;">Signup</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content reveal">
+                <div class="hero-text">
+                    <h1>Smarter Parking for Modern Cities</h1>
+                    <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8;">Experience the next
+                        generation of parking management. Real-time slot tracking, automated monthly passes, and
+                        seamless digital payments.</p>
+                    <div class="hero-buttons" style="margin-top: 2rem;">
+                        <a href="plans.html" class="btn btn-primary">Get Monthly Pass</a>
+                        <a href="map.html" class="btn btn-outline">View Live Map</a>
+                    </div>
+                </div>
+                <div class="hero-image hover-scale">
+                    <img src="https://images.unsplash.com/photo-1573348722427-f1d6819fdf98?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Modern Parking Garage Architecture" style="border-radius: var(--radius-lg);">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Section -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container reveal">
+            <div class="stats-grid">
+                <div class="text-center">
+                    <div style="font-size: 2.5rem; font-weight: 800; color: var(--primary);">45+</div>
+                    <p style="color: var(--text-muted); font-weight: 500; font-size: 0.9rem;">Parking Garages</p>
+                </div>
+                <div class="text-center">
+                    <div style="font-size: 2.5rem; font-weight: 800; color: var(--primary);">12k+</div>
+                    <p style="color: var(--text-muted); font-weight: 500; font-size: 0.9rem;">Active Slots</p>
+                </div>
+                <div class="text-center">
+                    <div style="font-size: 2.5rem; font-weight: 800; color: var(--primary);">8.5k+</div>
+                    <p style="color: var(--text-muted); font-weight: 500; font-size: 0.9rem;">Monthly Users</p>
+                </div>
+                <div class="text-center">
+                    <div style="font-size: 2.5rem; font-weight: 800; color: var(--primary);">99%</div>
+                    <p style="color: var(--text-muted); font-weight: 500; font-size: 0.9rem;">Customer Trust</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="badge badge-primary mb-2">Platform Excellence</span>
+                <h2>Cutting-Edge Features</h2>
+                <p>Everything you need to manage and navigate parking spaces efficiently in one powerful platform.</p>
+            </div>
+            <div class="grid-3 reveal" style="gap: 2.5rem;">
+                <div class="card">
+                    <div class="card-icon"><i data-lucide="map-pin"></i></div>
+                    <h4>Smart Slot Tracking</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Real-time occupancy sensors let you know
+                        exactly where spaces are available before you even arrive.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i data-lucide="ticket"></i></div>
+                    <h4>Monthly Passes</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Manage your long-term parking with
+                        automated renewals, digital receipts, and tiered membership plans.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i data-lucide="credit-card"></i></div>
+                    <h4>Contactless Payments</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Secure, fast, and easy digital payments. No
+                        more fumbling for cash or waiting at ticket booths.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Availability -->
+    <section class="section" style="background-color: var(--surface-alt);">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Live Availability Preview</h2>
+                <p>Check current slot status at our most popular locations.</p>
+            </div>
+            <div class="grid-3 reveal" style="gap: 2rem;">
+                <div class="card" style="padding: 2rem;">
+                    <div class="flex" style="justify-content: space-between; align-items: start; margin-bottom: 2rem;">
+                        <div>
+                            <h4 style="margin-bottom: 0.25rem;">Grand Plaza</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Downtown CBD</p>
+                        </div>
+                        <span class="badge badge-secondary" style="font-size: 0.7rem;">92% FREE</span>
+                    </div>
+                    <div style="margin-bottom: 2rem;">
+                        <div class="flex"
+                            style="justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.75rem;">
+                            <span>Available</span>
+                            <span style="font-weight: 700;">230/250</span>
+                        </div>
+                        <div style="height: 6px; background: var(--border); border-radius: 3px; overflow: hidden;">
+                            <div style="width: 92%; height: 100%; background: var(--secondary);"></div>
+                        </div>
+                    </div>
+                    <a href="locations.html" class="flex"
+                        style="color: var(--primary); font-weight: 700; font-size: 0.9rem; align-items: center; gap: 0.5rem;">Explore
+                        Garage <i data-lucide="chevron-right" style="width: 16px;"></i></a>
+                </div>
+                <!-- Repeat for Skyine & Riverside with better spacing -->
+                <div class="card" style="padding: 2rem;">
+                    <div class="flex" style="justify-content: space-between; align-items: start; margin-bottom: 2rem;">
+                        <div>
+                            <h4 style="margin-bottom: 0.25rem;">Skyline Gateway</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Financial District</p>
+                        </div>
+                        <span class="badge badge-primary" style="font-size: 0.7rem;">22% FREE</span>
+                    </div>
+                    <div style="margin-bottom: 2rem;">
+                        <div class="flex"
+                            style="justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.75rem;">
+                            <span>Available</span>
+                            <span style="font-weight: 700;">44/200</span>
+                        </div>
+                        <div style="height: 6px; background: var(--border); border-radius: 3px; overflow: hidden;">
+                            <div style="width: 22%; height: 100%; background: var(--primary);"></div>
+                        </div>
+                    </div>
+                    <a href="locations.html" class="flex"
+                        style="color: var(--primary); font-weight: 700; font-size: 0.9rem; align-items: center; gap: 0.5rem;">Explore
+                        Garage <i data-lucide="chevron-right" style="width: 16px;"></i></a>
+                </div>
+                <div class="card" style="padding: 2rem;">
+                    <div class="flex" style="justify-content: space-between; align-items: start; margin-bottom: 2rem;">
+                        <div>
+                            <h4 style="margin-bottom: 0.25rem;">Riverside Hub</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">West End Park</p>
+                        </div>
+                        <span class="badge badge-secondary" style="font-size: 0.7rem;">41% FREE</span>
+                    </div>
+                    <div style="margin-bottom: 2rem;">
+                        <div class="flex"
+                            style="justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.75rem;">
+                            <span>Available</span>
+                            <span style="font-weight: 700;">61/150</span>
+                        </div>
+                        <div style="height: 6px; background: var(--border); border-radius: 3px; overflow: hidden;">
+                            <div style="width: 41%; height: 100%; background: var(--secondary);"></div>
+                        </div>
+                    </div>
+                    <a href="locations.html" class="flex"
+                        style="color: var(--primary); font-weight: 700; font-size: 0.9rem; align-items: center; gap: 0.5rem;">Explore
+                        Garage <i data-lucide="chevron-right" style="width: 16px;"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call-to-action Section -->
+    <section class="section">
+        <div class="container">
+            <div class="reveal"
+                style="background: linear-gradient(135deg, var(--primary) 0%, #1e40af 100%); padding: 4rem; border-radius: var(--radius-lg); text-align: center; color: white;">
+                <h2 style="font-size: 2.8rem; margin-bottom: 1rem;">Ready to Park Smarter?</h2>
+                <p
+                    style="font-size: 1.1rem; margin-bottom: 3rem; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Join thousands of satisfied drivers who save time and money with ParkSmart Every day.</p>
+                <div class="flex" style="gap: 1.5rem; justify-content: center;">
+                    <a href="plans.html" class="btn btn-secondary" style="padding: 1rem 2.5rem;">Buy Pass Now</a>
+                    <a href="map.html" class="btn"
+                        style="padding: 1rem 2.5rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(5px);">View
+                        Availability</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <div id="parksmart-footer"></div>
+
+    <button class="back-to-top" id="backToTop">
+        <i data-lucide="chevron-up"></i>
+    </button>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
