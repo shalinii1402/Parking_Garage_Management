@@ -21,21 +21,31 @@ function updateThemeIcon(theme) {
 // Sidebar Toggle Logic (Dashboard)
 function initSidebar() {
     const sidebarToggle = document.getElementById('sidebar-toggle');
+    const headerLogo = document.querySelector('.header-logo');
     const sidebar = document.querySelector('.sidebar');
 
-    if (sidebarToggle && sidebar) {
-        // Toggle Sidebar
-        sidebarToggle.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevent immediate closing
+    if (sidebar && (sidebarToggle || headerLogo)) {
+        const handleToggle = (e) => {
+            // If the event target is the headerLogo and it's a small screen, prevent default navigation
+            if (e.currentTarget === headerLogo && window.innerWidth <= 768) {
+                e.preventDefault();
+            }
+            e.stopPropagation(); // Prevent immediate closing by document click listener
             sidebar.classList.toggle('active');
-        });
+        };
+
+        if (sidebarToggle) sidebarToggle.addEventListener('click', handleToggle);
+        if (headerLogo) headerLogo.addEventListener('click', handleToggle);
 
         // Close sidebar when clicking outside on mobile
         document.addEventListener('click', (e) => {
+            const isToggledElement = (sidebarToggle && sidebarToggle.contains(e.target)) ||
+                (headerLogo && headerLogo.contains(e.target));
+
             if (window.innerWidth <= 768 &&
                 sidebar.classList.contains('active') &&
                 !sidebar.contains(e.target) &&
-                !sidebarToggle.contains(e.target)) {
+                !isToggledElement) {
                 sidebar.classList.remove('active');
             }
         });
