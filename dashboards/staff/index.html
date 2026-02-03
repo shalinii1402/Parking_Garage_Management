@@ -49,6 +49,7 @@
         <main class="main-dashboard">
             <header class="dashboard-header">
                 <div class="flex-center gap-1">
+                    <button id="sidebar-toggle"><i data-lucide="menu"></i></button>
                     <h3 style="margin: 0;">Operational: Grand Plaza Garage</h3>
                 </div>
                 <div class="flex-center gap-1">
@@ -101,15 +102,16 @@
                 <!-- Check-in Action -->
                 <div class="table-card mb-4"
                     style="background: linear-gradient(90deg, var(--primary), #1e40af); color: white; border: none; padding: 2.5rem;">
-                    <div class="flex" style="justify-content: space-between; align-items: center;">
+                    <div class="flex"
+                        style="justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
                         <div>
                             <h2 style="margin-bottom: 0.5rem;">Quick Arrival Control</h2>
                             <p style="opacity: 0.8;">Scan ticket or enter plate number for manual check-in.</p>
                         </div>
                         <div class="flex gap-1"
-                            style="background: white; padding: 0.5rem; border-radius: 1rem; width: 400px;">
+                            style="background: white; padding: 0.5rem; border-radius: 1rem; width: 100%; max-width: 400px;">
                             <input type="text" placeholder="Enter Plate Number (e.g. ABC-1234)"
-                                style="flex: 1; border: none; padding: 0.75rem; border-radius: 0.5rem; outline: none;">
+                                style="flex: 1; border: none; padding: 0.75rem; border-radius: 0.5rem; outline: none; min-width: 0;">
                             <button class="btn btn-primary" style="border-radius: 0.75rem;">Check-In</button>
                         </div>
                     </div>
@@ -226,5 +228,3 @@
 </body>
 
 </html>
-
-

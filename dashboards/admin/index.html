@@ -75,10 +75,11 @@
         <main class="main-dashboard">
             <header class="dashboard-header">
                 <div class="flex-center gap-1">
-                    <h3 style="margin: 0;">Global Performance Dashboard</h3>
+                    <button id="sidebar-toggle"><i data-lucide="menu"></i></button>
+                    <h3 style="margin: 0;">Global KPI</h3>
                 </div>
                 <div class="flex-center gap-1">
-                    <div
+                    <div class="hide-mobile"
                         style="background: var(--surface-alt); padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.85rem; font-weight: 600; color: var(--text-muted); display: flex; align-items: center; gap: 0.5rem;">
                         <i data-lucide="calendar" style="width: 16px;"></i> Last 30 Days <i data-lucide="chevron-down"
                             style="width: 14px;"></i>
@@ -134,7 +135,7 @@
                     <div class="table-card" style="padding: 1.5rem;">
                         <div class="flex" style="justify-content: space-between; margin-bottom: 2rem;">
                             <h4 style="margin: 0;">Revenue Growth</h4>
-                            <div class="flex gap-1">
+                            <div class="flex gap-1" style="flex-wrap: wrap;">
                                 <span class="badge badge-primary">Daily</span>
                                 <span class="badge"
                                     style="background: var(--surface-alt); color: var(--text-muted);">Weekly</span>
@@ -270,9 +271,27 @@
         document.addEventListener('DOMContentLoaded', () => {
             if (window.lucide) lucide.createIcons();
         });
+
+        // Sidebar Toggle
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const sidebar = document.querySelector('.sidebar');
+
+        if (sidebarToggle && sidebar) {
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+            });
+
+            // Close sidebar when clicking outside on mobile
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768 &&
+                    sidebar.classList.contains('active') &&
+                    !sidebar.contains(e.target) &&
+                    !sidebarToggle.contains(e.target)) {
+                    sidebar.classList.remove('active');
+                }
+            });
+        }
     </script>
 </body>
 
 </html>
-
-
