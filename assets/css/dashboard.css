@@ -268,15 +268,9 @@
     }
 
     /* Reset logo and text visibility for the active mobile sidebar */
-    .sidebar .logo {
-        font-size: 1.5rem;
-        justify-content: flex-start;
-        margin-right: 3.5rem;
-    }
-
-    .sidebar span,
-    .sidebar .sidebar-header h2 {
-        display: inline;
+    /* Hide sidebar header (brand) on mobile/tablet */
+    .sidebar-header {
+        display: none;
     }
 
     .main-dashboard {
