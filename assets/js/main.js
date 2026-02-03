@@ -19,23 +19,37 @@ function updateThemeIcon(theme) {
 }
 
 // Sidebar Toggle Logic (Dashboard)
-const sidebarToggle = document.getElementById('sidebar-toggle');
-const sidebar = document.querySelector('.sidebar');
+function initSidebar() {
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const sidebar = document.querySelector('.sidebar');
 
-if (sidebarToggle && sidebar) {
-    sidebarToggle.addEventListener('click', () => {
-        sidebar.classList.toggle('active');
-    });
+    if (sidebarToggle && sidebar) {
+        // Toggle Sidebar
+        sidebarToggle.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent immediate closing
+            sidebar.classList.toggle('active');
+        });
 
-    // Close sidebar when clicking outside on mobile
-    document.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768 &&
-            sidebar.classList.contains('active') &&
-            !sidebar.contains(e.target) &&
-            !sidebarToggle.contains(e.target)) {
-            sidebar.classList.remove('active');
-        }
-    });
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 &&
+                sidebar.classList.contains('active') &&
+                !sidebar.contains(e.target) &&
+                !sidebarToggle.contains(e.target)) {
+                sidebar.classList.remove('active');
+            }
+        });
+
+        // Close sidebar when clicking a menu item on mobile
+        const menuItems = sidebar.querySelectorAll('.menu-item');
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    sidebar.classList.remove('active');
+                }
+            });
+        });
+    }
 }
 
 // Reveal on Scroll
@@ -63,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (window.lucide) lucide.createIcons();
     reveal();
+    initSidebar();
 
     // Smooth Scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

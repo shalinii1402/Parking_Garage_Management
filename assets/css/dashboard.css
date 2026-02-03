@@ -207,6 +207,8 @@
 @media (max-width: 768px) {
     #sidebar-toggle {
         display: block;
+        position: relative;
+        z-index: 1100;
     }
 
     .sidebar {
