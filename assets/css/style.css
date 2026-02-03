@@ -829,7 +829,7 @@ img {
     display: block;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
 
     .nav-links,
     .nav-actions {

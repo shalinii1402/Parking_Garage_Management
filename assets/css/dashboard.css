@@ -236,9 +236,9 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     #sidebar-toggle {
-        display: none !important;
+        display: flex !important;
     }
 
     .header-logo {

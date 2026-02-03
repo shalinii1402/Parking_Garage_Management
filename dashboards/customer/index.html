@@ -170,37 +170,7 @@
         </main>
     </div>
 
-    <script>
-        // Use simpler theme toggle for dashboards
-        const themeToggle = document.getElementById('theme-toggle');
-        const body = document.body;
-
-        themeToggle.addEventListener('click', () => {
-            const current = body.getAttribute('data-theme');
-            const next = current === 'dark' ? 'light' : 'dark';
-            body.setAttribute('data-theme', next);
-            localStorage.setItem('theme', next);
-            updateIcon(next);
-        });
-
-        function updateIcon(theme) {
-            const icon = themeToggle.querySelector('i');
-            if (theme === 'dark') {
-                icon.setAttribute('data-lucide', 'sun');
-            } else {
-                icon.setAttribute('data-lucide', 'moon');
-            }
-            if (window.lucide) lucide.createIcons();
-        }
-
-        const saved = localStorage.getItem('theme') || 'light';
-        body.setAttribute('data-theme', saved);
-        updateIcon(saved);
-
-        document.addEventListener('DOMContentLoaded', () => {
-            if (window.lucide) lucide.createIcons();
-        });
-    </script>
+    <script src="../../assets/js/main.js"></script>
 </body>
 
 </html>

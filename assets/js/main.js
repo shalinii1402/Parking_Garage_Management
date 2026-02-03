@@ -27,7 +27,7 @@ function initSidebar() {
     if (sidebar && (sidebarToggle || headerLogo)) {
         const handleToggle = (e) => {
             // If the event target is the headerLogo and it's a small screen, prevent default navigation
-            if (e.currentTarget === headerLogo && window.innerWidth <= 768) {
+            if (e.currentTarget === headerLogo && window.innerWidth <= 1024) {
                 e.preventDefault();
             }
             e.stopPropagation(); // Prevent immediate closing by document click listener
@@ -42,7 +42,7 @@ function initSidebar() {
             const isToggledElement = (sidebarToggle && sidebarToggle.contains(e.target)) ||
                 (headerLogo && headerLogo.contains(e.target));
 
-            if (window.innerWidth <= 768 &&
+            if (window.innerWidth <= 1024 &&
                 sidebar.classList.contains('active') &&
                 !sidebar.contains(e.target) &&
                 !isToggledElement) {
@@ -54,7 +54,7 @@ function initSidebar() {
         const menuItems = sidebar.querySelectorAll('.menu-item');
         menuItems.forEach(item => {
             item.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {
+                if (window.innerWidth <= 1024) {
                     sidebar.classList.remove('active');
                 }
             });
