@@ -49,14 +49,12 @@
                 <li><a href="plans.html" class="nav-link active">Pricing</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
-            <button id="theme-toggle" class="theme-toggle" style="margin-left: auto; margin-right: 0.5rem;"><i
-                    data-lucide="moon"></i></button>
+            <button id="theme-toggle" class="theme-toggle"><i data-lucide="moon"></i></button>
             <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()"><i
                     data-lucide="menu"></i></button>
             <div class="nav-actions">
                 <div class="dropdown">
-                    <button class="btn btn-primary"><i data-lucide="layout-dashboard"></i> Dashboards <i
-                            data-lucide="chevron-down"></i></button>
+                    <button class="dropdown-trigger">Dashboard</button>
                     <div class="dropdown-menu">
                         <a href="dashboards/customer/index.html" class="dropdown-item"><i data-lucide="user"></i>
                             User</a>
@@ -183,19 +181,30 @@
     <section class="section" style="background-color: var(--surface-alt);">
         <div class="container">
             <div class="section-header reveal">
-                <h2>Frequently Asked</h2>
-                <p>Common questions about our plans and services.</p>
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our plans, access, and services.</p>
             </div>
             <div class="grid-2 reveal" style="gap: 2rem;">
                 <div class="card" style="padding: 1.5rem;">
-                    <h4 class="mb-2">How do I access the garage?</h4>
+                    <h3 class="mb-2" style="font-size: 1.15rem;">How do I access the garage?</h3>
                     <p style="font-size: 0.9rem; color: var(--text-muted);">You can use our mobile app's QR code or
                         register your License Plate for automated entry via camera recognition.</p>
                 </div>
                 <div class="card" style="padding: 1.5rem;">
-                    <h4 class="mb-2">Can I cancel anytime?</h4>
+                    <h3 class="mb-2" style="font-size: 1.15rem;">Can I cancel anytime?</h3>
                     <p style="font-size: 0.9rem; color: var(--text-muted);">Yes, our monthly passes are non-contractual.
                         You can cancel at the end of any billing cycle from your dashboard.</p>
+                </div>
+                <div class="card" style="padding: 1.5rem;">
+                    <h3 class="mb-2" style="font-size: 1.15rem;">Is my spot guaranteed?</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Premium pass holders enjoy guaranteed ground
+                        level spots. Standard pass holders have access to all available general spots in their chosen
+                        garage.</p>
+                </div>
+                <div class="card" style="padding: 1.5rem;">
+                    <h3 class="mb-2" style="font-size: 1.15rem;">Can I change my vehicle?</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Yes, you can update your registered license
+                        plate up to twice per month through the Vehicle & Profile section of your dashboard.</p>
                 </div>
             </div>
         </div>

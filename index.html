@@ -33,14 +33,12 @@
                 <li><a href="plans.html" class="nav-link">Pricing</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
-            <button id="theme-toggle" class="theme-toggle" style="margin-left: auto; margin-right: 0.5rem;"><i
-                    data-lucide="moon"></i></button>
+            <button id="theme-toggle" class="theme-toggle"><i data-lucide="moon"></i></button>
             <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()"><i
                     data-lucide="menu"></i></button>
             <div class="nav-actions">
                 <div class="dropdown">
-                    <button class="btn btn-primary"><i data-lucide="layout-dashboard"></i> Dashboards <i
-                            data-lucide="chevron-down"></i></button>
+                    <button class="dropdown-trigger">Dashboard</button>
                     <div class="dropdown-menu">
                         <a href="dashboards/customer/index.html" class="dropdown-item"><i data-lucide="user"></i>
                             User</a>
@@ -88,7 +86,7 @@
                     <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8;">Experience the next
                         generation of parking management. Real-time slot tracking, automated monthly passes, and
                         seamless digital payments.</p>
-                    <div class="hero-buttons" style="margin-top: 2rem;">
+                    <div class="hero-buttons">
                         <a href="plans.html" class="btn btn-primary">Get Monthly Pass</a>
                         <a href="map.html" class="btn btn-outline">View Live Map</a>
                     </div>
@@ -240,11 +238,10 @@
         <div class="container">
             <div class="reveal"
                 style="background: linear-gradient(135deg, var(--primary) 0%, #1e40af 100%); padding: 4rem; border-radius: var(--radius-lg); text-align: center; color: white;">
-                <h2 style="font-size: 2.8rem; margin-bottom: 1rem;">Ready to Park Smarter?</h2>
-                <p
-                    style="font-size: 1.1rem; margin-bottom: 3rem; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto;">
+                <h2 style="font-size: 2.8rem; color: white;" class="mb-3">Ready to Park Smarter?</h2>
+                <p style="font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto;">
                     Join thousands of satisfied drivers who save time and money with ParkSmart Every day.</p>
-                <div class="flex" style="gap: 1.5rem; justify-content: center;">
+                <div class="cta-buttons">
                     <a href="plans.html" class="btn btn-secondary" style="padding: 1rem 2.5rem;">Buy Pass Now</a>
                     <a href="map.html" class="btn"
                         style="padding: 1rem 2.5rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(5px);">View

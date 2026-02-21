@@ -31,14 +31,12 @@
                 <li><a href="plans.html" class="nav-link">Pricing</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
-            <button id="theme-toggle" class="theme-toggle" style="margin-left: auto; margin-right: 0.5rem;"><i
-                    data-lucide="moon"></i></button>
+            <button id="theme-toggle" class="theme-toggle"><i data-lucide="moon"></i></button>
             <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()"><i
                     data-lucide="menu"></i></button>
             <div class="nav-actions">
                 <div class="dropdown">
-                    <button class="btn btn-primary"><i data-lucide="layout-dashboard"></i> Dashboards <i
-                            data-lucide="chevron-down"></i></button>
+                    <button class="dropdown-trigger">Dashboard</button>
                     <div class="dropdown-menu">
                         <a href="dashboards/customer/index.html" class="dropdown-item"><i data-lucide="user"></i>
                             User</a>
@@ -373,11 +371,10 @@
             <div class="text-center"
                 style="background: var(--surface-alt); padding: 4rem 2rem; border-radius: var(--radius-lg); border: 1px solid var(--border);">
                 <h2 class="mb-3">Ready to find your perfect spot?</h2>
-                <p class="mb-5"
-                    style="color: var(--text-muted); max-width: 600px; margin-left: auto; margin-right: auto;">Join
+                <p style="color: var(--text-muted); max-width: 600px; margin-left: auto; margin-right: auto;">Join
                     ParkSmart today and experience the future of urban mobility with real-time tracking and instant
                     reservations.</p>
-                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <div class="cta-buttons">
                     <a href="index.html" class="btn btn-primary" style="padding: 1rem 2rem;">Find Parking</a>
                     <a href="map.html" class="btn btn-outline" style="padding: 1rem 2rem;">View Map</a>
                 </div>

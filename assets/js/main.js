@@ -21,26 +21,23 @@ function updateThemeIcon(theme) {
 // Sidebar Toggle Logic (Dashboard)
 function initSidebar() {
     const sidebarToggle = document.getElementById('sidebar-toggle');
-    const headerLogo = document.querySelector('.header-logo');
+    const sidebarClose = document.getElementById('sidebar-close');
     const sidebar = document.querySelector('.sidebar');
 
-    if (sidebar && (sidebarToggle || headerLogo)) {
+    if (sidebar && (sidebarToggle || sidebarClose)) {
         const handleToggle = (e) => {
-            // If the event target is the headerLogo and it's a small screen, prevent default navigation
-            if (e.currentTarget === headerLogo && window.innerWidth <= 1024) {
-                e.preventDefault();
-            }
-            e.stopPropagation(); // Prevent immediate closing by document click listener
+            e.stopPropagation();
             sidebar.classList.toggle('active');
         };
 
         if (sidebarToggle) sidebarToggle.addEventListener('click', handleToggle);
-        if (headerLogo) headerLogo.addEventListener('click', handleToggle);
+        if (sidebarClose) sidebarClose.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+        });
 
         // Close sidebar when clicking outside on mobile
         document.addEventListener('click', (e) => {
-            const isToggledElement = (sidebarToggle && sidebarToggle.contains(e.target)) ||
-                (headerLogo && headerLogo.contains(e.target));
+            const isToggledElement = sidebarToggle.contains(e.target);
 
             if (window.innerWidth <= 1024 &&
                 sidebar.classList.contains('active') &&

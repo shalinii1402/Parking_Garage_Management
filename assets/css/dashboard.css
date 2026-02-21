@@ -25,6 +25,22 @@
     border-bottom: 1px solid var(--border);
 }
 
+.sidebar-close {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text);
+    padding: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.sidebar-close:hover {
+    color: #ef4444;
+}
+
 .sidebar-menu {
     flex: 1;
     padding: 1.5rem 1rem;
@@ -260,6 +276,7 @@
         z-index: 1000;
         overflow-y: auto;
         box-shadow: none;
+        background-color: var(--surface);
     }
 
     .sidebar.active {
@@ -270,12 +287,25 @@
     /* Reset logo and text visibility for the active mobile sidebar */
     /* Hide sidebar header (brand) on mobile/tablet */
     .sidebar-header {
-        display: none;
+        display: flex;
+        /* Ensure logo is visible in mobile sidebar */
+        padding: 0 1.5rem;
+    }
+
+    .sidebar-close {
+        display: flex;
+        margin-left: auto;
+    }
+
+    .dashboard-header .theme-toggle {
+        display: none !important;
     }
 
     .main-dashboard {
         width: 100%;
         margin-left: 0;
+        min-width: 0;
+        /* Prevent overflow */
     }
 
     .dashboard-header {
@@ -284,11 +314,11 @@
     }
 
     .dashboard-header h3 {
-        font-size: 1.1rem;
+        font-size: 1rem;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        max-width: 150px;
+        max-width: 120px;
     }
 
     .user-badge span {
@@ -307,6 +337,7 @@
     .table-card {
         overflow-x: auto;
         margin-bottom: 1rem;
+        -webkit-overflow-scrolling: touch;
     }
 
     /* Adjust cards to not touch edges if they do */
@@ -317,5 +348,45 @@
     /* Show/Hide helpers */
     .hide-mobile {
         display: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-header {
+        padding: 0 0.75rem;
+    }
+
+    .dashboard-header h3 {
+        max-width: 100px;
+        font-size: 0.9rem;
+    }
+
+    .content-body {
+        padding: 0.75rem;
+    }
+
+    .sidebar {
+        width: 100%;
+        /* Full screen sidebar on very small screens */
+    }
+}
+
+@media (max-width: 360px) {
+    .dashboard-header h3 {
+        display: none;
+        /* Hide title on very small screens to fit logo and toggle */
+    }
+
+    .header-logo {
+        font-size: 1.1rem;
+    }
+
+    .stat-value {
+        font-size: 1.25rem;
+    }
+
+    .dashboard-vh {
+        overflow-x: hidden;
+        /* Strict horizontal scroll prevention */
     }
 }
